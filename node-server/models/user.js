@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const bcrypt = require('bycrypt-nodejs')
+const bcrypt = require('bcrypt-nodejs')
 const crypto = require('crypto')
 
 const UserSchema = new Schema({
@@ -16,7 +16,7 @@ const UserSchema = new Schema({
 
 UserSchema.pre('save', (next) => {
     let user = this
-    if(!user.isModified('password')) return next()
+    //if(!user.isModified('password')) return next()
 
     bcrypt.genSalt(10, (err, salt) => {
         if (err) return next()
