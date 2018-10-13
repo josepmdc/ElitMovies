@@ -2,6 +2,7 @@
 
 # dependencies
 react-client/node_modules
+node-server/node_modules
 
 # testing
 /coverage
