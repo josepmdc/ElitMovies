@@ -5,21 +5,29 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <table className="titleBar">
+          <tbody>
+            <tr>
+              <td>
+                <img alt="app icon" width="50" src="green_app_icon.svg"/>
+              </td>
+              <td width="8"/>
+              <td>
+                <h1>MoviesDB Search</h1>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <input style={{
+          fontSize: 24,
+          display: 'block',
+          width: "99%",
+          paddingTop: 8,
+          paddingBottom: 8,
+          paddingLeft: 16
+        }} placeholder="Enter search term"/>
       </div>
     );
   }
