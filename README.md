@@ -1,3 +1,3 @@
 # ProyectoFinal
 Proyecto final Desarrollo de Aplicaciones Multiplataforma
-  [ ] Diseño de la BBDD
+  - [x] Diseño de la BBDD
