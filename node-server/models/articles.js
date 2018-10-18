@@ -11,13 +11,13 @@ let ArticleSchema = new mongoose.Schema(
         thumbnail: String,
         likes: Number,
         author: {
-            type: mongoose.Schema.Types.ObjectId,
+            // type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
         },
         comments: [
             {
                 author: {
-                    type: mongoose.Schema.Types.ObjectId,
+                    // type: mongoose.Schema.Types.ObjectId,
                     ref: 'User'
                 },
                 text: String
