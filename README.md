@@ -5,9 +5,12 @@ Aplicación estilo wiki, dónde van a salir peliculas y series con su poster y u
 
 - [ ] Diseño de la BBDD
 - [ ] Diseño de las pantallas
+    - [ ] Pantalla principal
+    - [ ] Pantalla detalle pelicula
+    - [ ] Buscador
 - [ ] Diseño de clases
 - [ ] Diseño de la API
-- [ ] etc....
+- [ ] etc...
 
   Idea de más o menos como sería la página principal(La foto es de TeaTV, es para tener una idea)
 ![alt text](https://teatv.net/wp-content/uploads/2017/10/teatv.png)
