@@ -1,8 +1,8 @@
 import React from 'react';
-import '../App.css';
+import './css/Search.css';
 import MovieRow from './MovieRow'
 import $ from 'jquery'
-import config from '../config'
+import config from '../../config'
 
 class Search extends React.Component {
 

@@ -1,0 +1,109 @@
+.trailerButton {
+    background-color:#4083ff;
+      -moz-border-radius:20px;
+      -webkit-border-radius:20px;
+      border-radius:20px;
+      display:inline-block;
+      cursor:pointer;
+      color:#ffffff;
+      font-size:17px;
+    padding:10px 30px;
+    margin: 0 0 0 20px;
+      text-decoration:none;
+    border: 0
+  }
+  
+  .viewButton {
+      background-color:#ff4049;
+      -moz-border-radius:20px;
+      -webkit-border-radius:20px;
+      border-radius:20px;
+      display:inline-block;
+      cursor:pointer;
+      color:#ffffff;
+      font-size:17px;
+    padding:10px 30px;
+    margin: 0 0 0 20px;
+      text-decoration:none;
+    border: 0
+  }
+  .myviewButton:hover {
+      background-color:#fc854e;
+  }
+  
+  #search {
+      position: relative;
+      display: inline-block;
+  }
+  
+  #suggestions {
+      position: absolute;
+      top: 37px;
+      width: 275px;
+      height: auto;
+      -webkit-border-radius: 3px;
+      -khtml-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -o-border-radius: 3px;
+      border-radius: 3px;
+      background-color: #1c5bd1;
+      color: #fff;
+      display: none;
+      z-index: 10;
+  }
+  
+  #suggestions a {
+      text-decoration: none;
+      color: #40ff96;
+  }
+  
+  #suggestions a:hover {
+      color: #ffe240;
+  }
+  
+  #searchBar {
+      padding: 0 10px;
+      width: 255px;
+      height: 32px;
+      border: 1px solid #40ff96;
+      background: 0 0 #ffffff;
+      color: #136d39;
+      line-height: 32px;
+      -webkit-border-radius: 3px;
+      -khtml-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -o-border-radius: 3px;
+      border-radius: 3px;
+  }
+  
+  .poster {
+      margin: 10px;
+      width: 65px;
+      border-radius: 10%;
+      float: left;
+  }
+  
+  .info {
+      height: 100px;
+      padding: 12px;
+  }
+  
+  #viewAll {
+      top: 37px;
+      width: 100%;
+      height: auto;
+      -webkit-border-radius: 3px;
+      -khtml-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -o-border-radius: 3px;
+      border-radius: 3px;
+      background-color: #40ff96;
+      color: #1c5bd1;
+      display: none;
+      z-index: 10;
+      padding: 10px 0;
+      text-align: center;
+  }
