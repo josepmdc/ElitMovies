@@ -9,72 +9,7 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {}
-    //this.loadPopularMovies()
   }
-
-  //#region Unused functions
-
-  // Carga las películas más populares en TheMovieDB
-  loadPopularMovies() {
-    const urlString = `https://api.themoviedb.org/3/discover/movie?api_key=${config.movieDBbApiKey}&sort_by=popularity.desc`
-    $.ajax({
-      url: urlString,
-      success: (searchResults) => {
-        const results = searchResults.results
-
-        var movieRows = [];
-
-        results.forEach(movie => {
-          movie.poster_src = "https://image.tmdb.org/t/p/w185" + movie.poster_path
-          movie.trailer_src = this.getTrailerLink(movie);
-          const movieRow = <MovieRow key={movie.id} movie={movie} />;
-          movieRows.push(movieRow)
-        });
-
-        this.setState({ rows: movieRows })
-
-      },
-      error: (xhr, status, err) => {
-        console.log("Failed to fetch data...")
-      }
-    })
-  }
-
-  // Busca el link del tráiler en la API de TheMovieDB
-  getTrailerLink(mediaType, movieId) {
-    let urlString = '';
-    let trailerUrl = "https://www.youtube.com/watch?v=";
-
-    if (mediaType === "movie") {
-      urlString = 'https://api.themoviedb.org/3/movie/' + movieId + `/videos?language=en&api_key=${config.movieDBbApiKey}`
-    }
-    else if (mediaType === "tv") {
-      urlString = 'https://api.themoviedb.org/3/tv/' + movieId + `/videos?language=en&api_key=${config.movieDBbApiKey}`
-    }
-
-    $.ajax({
-      url: urlString,
-      async: true,
-      crossDomain: true,
-      method: "GET",
-      success: (searchResults) => {
-        console.log("Fetched data succesfully!");
-        const results = searchResults.results;
-        if (results !== undefined) {
-          results.forEach(trailer => {
-            if (trailer.type === "Trailer") {
-              trailerUrl = trailerUrl + trailer.key
-            }
-          })
-        }
-      },
-      error: (xhr, status, err) => {
-        console.log("Failed to fetch data...")
-      }
-    });
-    return trailerUrl;
-  }
-  //#endregion
 
   //#region Functions
 
@@ -109,6 +44,7 @@ class Search extends React.Component {
 
   }
 
+  // NO FUNCIONA SE TIENE QUE ARREGLAR. Busca el genero de la pelicula.
   getMovieGenres(mediaType, movieGenreIds) {
 
     if (mediaType === undefined || movieGenreIds === undefined) {
@@ -153,6 +89,7 @@ class Search extends React.Component {
     document.getElementById("viewAll").style.display = "block"
   }
 
+  // Oculta el dropdown si el input esta vacio
   hideDropdown() {
     document.getElementById("suggestions").style.display = "none"
     document.getElementById("viewAll").style.display = "none"

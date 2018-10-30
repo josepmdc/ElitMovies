@@ -2,7 +2,7 @@ import React from 'react'
 import config from '../../config'
 import $ from 'jquery'
 
-class MovieRow extends React.Component {
+class Movie extends React.Component {
 
   constructor(props) {
     super(props)
@@ -53,19 +53,11 @@ class MovieRow extends React.Component {
     return (
       <div className="item">
         <img alt='poster' src={this.props.movie.poster_src} className="poster" />
-        <div className="info">
-          <a className="name" href={"https://www.themoviedb.org/movie/" + this.props.movie.id} target="_blank" rel="noopener noreferrer">{this.props.movie.title}</a>
-          <div className="meta">
-            <span>IMDb: <span className="imdb">{this.props.movie.vote_average} </span></span>
-            <span><span className="year">Release: </span> {this.props.movie.release_date} </span>
-          </div>
-          <div className="genre">
-            <span><a href = {this.state.trailer} target = "_blank" rel="noopener noreferrer">Trailer</a></span>
-          </div>
-        </div>
+        <a className="name" href={"https://www.themoviedb.org/movie/" + this.props.movie.id} target="_blank" rel="noopener noreferrer">{this.props.movie.title}</a>
+        <a href = {this.state.trailer} target = "_blank" rel="noopener noreferrer">Trailer</a>
       </div>
     );
   }
 }
 
-export default MovieRow
+export default Movie

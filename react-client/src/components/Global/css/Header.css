@@ -1,51 +1,44 @@
-.Header {
-
-    text-align: center;
-    background-color: #222;
-    height: 130px;
-    padding: 20px;
-    color:white;
-
+.header {
+  background-color: #081c24;
+  min-height: 60px;
 }
 
-h2 {
-
-font-size: 23px;
+.container {
+  width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px;
 }
 
-
-
-
-.Logo img {
-    height: 50px;
-    align-content: center;
+#logo {
+  height: 50px;
+  align-content: center;
+  float: left;
+  padding: 6px;
 }
 
-.Menu {
-    text-align: center;
-	margin: 0;
-	padding: 0;
-    list-style: none;
+.menu {
+  margin: 0;
+  padding: 20px 50px 15px 50px;
+  list-style: none;
+  display: inline-block;
 }
 
-.Menu li {
-
-display: inline-block;
-padding-right: 18px;
-
+.menu li {
+  display: inline-block;
+  padding-right: 18px;
 }
 
-.Menu li a {
-
-    color: gray;
-    text-decoration: none;
-
-
+.menu li a {
+  color: #40ff96;
+  text-decoration: none;
 }
 
-.Menu li a:hover {
+.menu li a:hover {
+  color: #cac037;
+}
 
-    color: beige;
-
-
+#search {
+  float: right;
+  padding: 11px;
 }
