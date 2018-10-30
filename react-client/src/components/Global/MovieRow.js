@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-class MovieRow extends React.Component {
+class MovieRow extends Component {
 
     
     viewMovie() {
@@ -8,7 +8,7 @@ class MovieRow extends React.Component {
         window.location.href = url
     }
 
-    viewTrailer() {
+    viewTrailer() { // eslint-disable-next-line
         const url = "https://www.youtube.com/watch?v=" + "oAALE9m47dc"
         window.location.href = url
     }

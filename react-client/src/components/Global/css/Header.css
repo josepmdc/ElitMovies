@@ -1,0 +1,51 @@
+.Header {
+
+    text-align: center;
+    background-color: #222;
+    height: 130px;
+    padding: 20px;
+    color:white;
+
+}
+
+h2 {
+
+font-size: 23px;
+}
+
+
+
+
+.Logo img {
+    height: 50px;
+    align-content: center;
+}
+
+.Menu {
+    text-align: center;
+	margin: 0;
+	padding: 0;
+    list-style: none;
+}
+
+.Menu li {
+
+display: inline-block;
+padding-right: 18px;
+
+}
+
+.Menu li a {
+
+    color: gray;
+    text-decoration: none;
+
+
+}
+
+.Menu li a:hover {
+
+    color: beige;
+
+
+}
