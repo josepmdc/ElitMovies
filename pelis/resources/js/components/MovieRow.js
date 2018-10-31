@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-class MovieRow extends React.Component {
+export default class MovieRow extends Component {
 
     
     viewMovie() {
@@ -32,4 +32,3 @@ class MovieRow extends React.Component {
     }
 }
 
-export default MovieRow

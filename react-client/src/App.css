@@ -1,41 +1,7 @@
 
-
 .titleBar {
   background-color: #000;
   display: block;
   color: #fff;
   padding-left: 16px
-}
-
-.trailerButton {
-  background-color:#4083ff;
-	-moz-border-radius:20px;
-	-webkit-border-radius:20px;
-	border-radius:20px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-size:17px;
-  padding:10px 30px;
-  margin: 0 0 0 20px;
-	text-decoration:none;
-  border: 0
-}
-
-.viewButton {
-	background-color:#ff4049;
-	-moz-border-radius:20px;
-	-webkit-border-radius:20px;
-	border-radius:20px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-size:17px;
-  padding:10px 30px;
-  margin: 0 0 0 20px;
-	text-decoration:none;
-  border: 0
-}
-.myviewButton:hover {
-	background-color:#fc854e;
 }

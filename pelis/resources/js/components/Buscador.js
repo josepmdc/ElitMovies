@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import '../App.css';
 import MovieRow from './MovieRow'
-import $ from 'jquery'
 
 
-class Buscador extends Component {
+export default class Buscador extends Component {
 
     constructor(props) {
       super(props)
@@ -73,6 +71,7 @@ class Buscador extends Component {
       return (
         <div>
           <table className="titleBar">
+
             <tbody>
               <tr>
                 <td>
@@ -80,7 +79,9 @@ class Buscador extends Component {
                 </td>
                 <td width="8"/>
                 <td>
-                  <h1>MoviesDB Search</h1>
+               
+                  <h1>MoviesDB Search con Laravel</h1>
+                
                 </td>
               </tr>
             </tbody>
@@ -102,4 +103,4 @@ class Buscador extends Component {
     }
 }
 
-export default Buscador;
+

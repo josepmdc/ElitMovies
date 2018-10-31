@@ -1,0 +1,44 @@
+.header {
+  background-color: #081c24;
+  min-height: 60px;
+}
+
+.container {
+  width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px;
+}
+
+#logo {
+  height: 50px;
+  align-content: center;
+  float: left;
+  padding: 6px;
+}
+
+.menu {
+  margin: 0;
+  padding: 20px 50px 15px 50px;
+  list-style: none;
+  display: inline-block;
+}
+
+.menu li {
+  display: inline-block;
+  padding-right: 18px;
+}
+
+.menu li a {
+  color: #40ff96;
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  color: #cac037;
+}
+
+#search {
+  float: right;
+  padding: 11px;
+}
