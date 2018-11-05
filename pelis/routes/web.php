@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'primerdisenyoController@index');
-Route::get('/inicio', 'primerdisenyoController@index');
+
 Route::get('/ejemplo', 'primerdisenyoController@index');
 
 
