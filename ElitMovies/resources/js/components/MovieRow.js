@@ -29,7 +29,7 @@ export default class MovieRow extends Component {
     UrlsFondos()
     {
         this.props.movie.poster_path    = "https://image.tmdb.org/t/p/w185"+this.props.movie.poster_path
-        this.props.movie.backdrop_path  = "https://image.tmdb.org/t/p/w185"+this.props.movie.backdrop_path
+        this.props.movie.backdrop_path  = "https://image.tmdb.org/t/p/w1400_and_h450_face/"+this.props.movie.backdrop_path
 
     }
     
@@ -50,6 +50,7 @@ export default class MovieRow extends Component {
         return (
             <div className = "ContienePelicula" style = {this.EstiloFondo}>
                 <div className = "Pelicula">
+                <div className = "FalsoFondo">
                     <div className="ContienePoster">
                         <img src={this.props.movie.poster_path}/>
                     </div>
@@ -61,6 +62,7 @@ export default class MovieRow extends Component {
                             <p>{ this.props.movie.overview }</p>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
 

@@ -38215,7 +38215,6 @@ var Root = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Root.__proto__ || Object.getPrototypeOf(Root)).call(this, props));
 
         _this.datos = JSON.parse(_this.props.data);
-        alert(_this.props.data);
         return _this;
     }
 
@@ -60919,7 +60918,7 @@ var MovieRow = function (_Component) {
         key: 'UrlsFondos',
         value: function UrlsFondos() {
             this.props.movie.poster_path = "https://image.tmdb.org/t/p/w185" + this.props.movie.poster_path;
-            this.props.movie.backdrop_path = "https://image.tmdb.org/t/p/w185" + this.props.movie.backdrop_path;
+            this.props.movie.backdrop_path = "https://image.tmdb.org/t/p/w1400_and_h450_face/" + this.props.movie.backdrop_path;
         }
     }, {
         key: 'viewMovie',
@@ -60944,29 +60943,33 @@ var MovieRow = function (_Component) {
                     { className: 'Pelicula' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'ContienePoster' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.props.movie.poster_path })
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'ContieneTituloSinopsis' },
+                        { className: 'FalsoFondo' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { className: 'ContieneTitulo' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'p',
-                                null,
-                                ' ',
-                                this.props.movie.title
-                            )
+                            { className: 'ContienePoster' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.props.movie.poster_path })
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { className: 'ContieneSinopsis' },
+                            { className: 'ContieneTituloSinopsis' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'p',
-                                null,
-                                this.props.movie.overview
+                                'div',
+                                { className: 'ContieneTitulo' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'p',
+                                    null,
+                                    ' ',
+                                    this.props.movie.title
+                                )
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'ContieneSinopsis' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'p',
+                                    null,
+                                    this.props.movie.overview
+                                )
                             )
                         )
                     )
@@ -63379,7 +63382,7 @@ exports.push([module.i, "", ""]);
 /* 108 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Missing binding /Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/node-sass/vendor/darwin-x64-57/binding.node\nNode Sass could not find a binding for your current environment: OS X 64-bit with Node.js 8.x\n\nFound bindings for the following environments:\n  - Linux 64-bit with Node.js 8.x\n\nThis usually happens because your environment has changed since running `npm install`.\nRun `npm rebuild node-sass` to download the binding for your current environment.\n    at module.exports (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/node-sass/lib/binding.js:15:13)\n    at Object.<anonymous> (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/node-sass/lib/index.js:14:35)\n    at Module._compile (module.js:653:30)\n    at Object.Module._extensions..js (module.js:664:10)\n    at Module.load (module.js:566:32)\n    at tryModuleLoad (module.js:506:12)\n    at Function.Module._load (module.js:498:3)\n    at Module.require (module.js:597:17)\n    at require (internal/module.js:11:18)\n    at Object.<anonymous> (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/sass-loader/lib/loader.js:3:14)\n    at Module._compile (module.js:653:30)\n    at Object.Module._extensions..js (module.js:664:10)\n    at Module.load (module.js:566:32)\n    at tryModuleLoad (module.js:506:12)\n    at Function.Module._load (module.js:498:3)\n    at Module.require (module.js:597:17)\n    at require (internal/module.js:11:18)\n    at loadLoader (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/loadLoader.js:13:17)\n    at iteratePitchingLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at runLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:170:18\n    at loadLoader (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/loadLoader.js:27:11)\n    at iteratePitchingLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/loader-runner/lib/LoaderRunner.js:362:2)\n    at NormalModule.doBuild (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/webpack/lib/NormalModule.js:182:3)\n    at NormalModule.build (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/webpack/lib/NormalModule.js:275:15)\n    at Compilation.buildModule (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/webpack/lib/Compilation.js:157:10)\n    at moduleFactory.create (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/webpack/lib/Compilation.js:460:10)\n    at factory (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/webpack/lib/NormalModuleFactory.js:243:5)\n    at applyPluginsAsyncWaterfall (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/webpack/lib/NormalModuleFactory.js:94:13)\n    at /Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/tapable/lib/Tapable.js:268:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/webpack/lib/CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/tapable/lib/Tapable.js:272:13)\n    at resolver (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/webpack/lib/NormalModuleFactory.js:69:10)\n    at process.nextTick (/Users/alexortuno/Documents/GitHub/ProyectoFinal/ElitMovies/node_modules/webpack/lib/NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:132:7)");
 
 /***/ })
 /******/ ]);

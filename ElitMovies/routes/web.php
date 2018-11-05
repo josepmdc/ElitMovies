@@ -17,6 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/populares', 'Pagina1Controller@index');
+Route::get('/home',		 	'HomeController@index')->name('home');
+Route::get('/populares',	'Pagina1Controller@index');
 //Route::get('/', 'PrimeraPaginaController@index');
