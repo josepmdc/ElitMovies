@@ -51,16 +51,20 @@ class MovieRow extends React.Component {
 
   render() {
     return (
-      <div className="item">
-        <img alt='poster' src={this.props.movie.poster_src} className="poster" />
-        <div className="info">
-          <a className="name" href={"https://www.themoviedb.org/movie/" + this.props.movie.id} target="_blank" rel="noopener noreferrer">{this.props.movie.title}</a>
-          <div className="meta">
-            <span>IMDb: <span className="imdb">{this.props.movie.vote_average} </span></span>
-            <span><span className="year">Release: </span> {this.props.movie.release_date} </span>
+      <div className="row">
+        <div className="container">
+          <div className = "col">
+            <img alt='poster' src={this.props.movie.poster_src} className="posterSearch" />
           </div>
-          <div className="genre">
-            <span><a href = {this.state.trailer} target = "_blank" rel="noopener noreferrer">Trailer</a></span>
+          <div className="col">
+            <a href={"https://www.themoviedb.org/movie/" + this.props.movie.id} target="_blank" rel="noopener noreferrer">{this.props.movie.title}</a>
+            <div>
+              <span>Score: <span>{this.props.movie.vote_average} </span></span>
+              <span><span>Release: </span> {this.props.movie.release_date} </span>
+            </div>
+            <div>
+              <span><a href={this.state.trailer} target="_blank" rel="noopener noreferrer">Trailer</a></span>
+            </div>
           </div>
         </div>
       </div>

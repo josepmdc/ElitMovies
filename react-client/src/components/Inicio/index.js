@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import $ from 'jquery'
 import config from '../../config'
 import Movie from '../Global/Movie';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../Inicio/Inicio.css'
 
 class Inicio extends Component {
 
@@ -41,9 +43,13 @@ class Inicio extends Component {
 
   render() {
     return (
-      <div className="Inicio">
-        <h1>Inicio</h1>
-        {this.state.rows}
+      <div>
+        <h1>Películas más populares</h1>
+        <div className="container">
+          <div className="row">
+            {this.state.rows}
+          </div>
+        </div>
       </div>
     )
   }

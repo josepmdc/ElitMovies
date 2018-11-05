@@ -9,7 +9,7 @@
 #suggestions {
   position: absolute;
   top: 50px;
-  width: 275px;
+  width: 285px;
   height: auto;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
@@ -35,7 +35,7 @@
 /* Barra del buscador */
 #searchBar {
   padding: 0 10px;
-  width: 255px;
+  width: 285px;
   height: 32px;
   border: 1px solid #40ff96;
   background: 0 0 #ffffff;
@@ -49,17 +49,11 @@
   border-radius: 3px;
 }
 
-.poster {
+.posterSearch {
   margin: 10px;
-  width: 65px;
+  width: 75px;
   border-radius: 10%;
   float: left;
-}
-
-/* Informacion sobre la pelicula */
-.info {
-  height: 100px;
-  padding: 12px;
 }
 
 /* Boton para ver todos los resultados */

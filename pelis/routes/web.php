@@ -19,7 +19,7 @@
 
 
 //Rutas necesarias para login de usuarios, uso de AUTH
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'primerdisenyoController@index');
@@ -37,3 +37,6 @@ Route::group(array('domain' => '/patata'), function() {
 });
 
   */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
