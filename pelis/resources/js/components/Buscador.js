@@ -5,21 +5,50 @@ import MovieRow from './MovieRow'
 export default class Buscador extends Component {
 
     constructor(props) {
+      
       super(props)
       this.state = {}
-      this.loadPopularMovies()
+      this.movieRows = []
+      this.CargarDatosRecibidos()
+
+    }
+    /*
+    Antes se cargaban las peliculas con Ajax desde React, ahora
+    nos interesa usar nuestra propia API y además dar con la carga 
+    própia de la página los datos de la película, eso sí, solo los
+    superficiales (titulo y resumen) para más detalles haremos llamadas
+    a nuestra Api pero desde React y con ajax
+    */
+
+    CargarDatosRecibidos() 
+    {
+      const results = this.props.datos.Peliculas.results
+      
+          
+          results.forEach(movie => {
+
+            const movieRow = <MovieRow key = { movie.id } movie = { movie } />
+            this.movieRows.push(movieRow)
+
+
+            
+          });
+    
+          
     }
   
     loadPopularMovies() {
-      const urlString = "https://api.themoviedb.org/3/discover/movie?api_key=1b5adf76a72a13bad99b8fc0c68cb085&sort_by=popularity.desc"
+      const urlString = "api/Populares";
+      
       $.ajax({
         url: urlString,
         success: (searchResults) => {
           console.log("Fetched data succesfully!")
+          alert(searchResults)
           const results = searchResults.results
-  
+         
           var movieRows = []
-  
+          
           results.forEach(movie => {
             movie.poster_src = "https://image.tmdb.org/t/p/w185" + movie.poster_path
             const movieRow = <MovieRow key = { movie.id } movie = { movie } />
@@ -74,9 +103,7 @@ export default class Buscador extends Component {
 
             <tbody>
               <tr>
-                <td>
-                  <img alt="app icon" width="50" src="green_app_icon.svg"/>
-                </td>
+               
                 <td width="8"/>
                 <td>
                
@@ -95,8 +122,10 @@ export default class Buscador extends Component {
             paddingBottom: 8,
             paddingLeft: 16
           }} onChange = { this.searchChangeHandler.bind(this) } placeholder="Enter search term"/>
-  
-          {this.state.rows}
+          <div className="ContienePeliculas" >
+            {this.movieRows}
+          </div>
+          
   
         </div>
       );

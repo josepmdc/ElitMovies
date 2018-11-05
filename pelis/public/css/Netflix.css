@@ -1,0 +1,24 @@
+body {
+	background: red;
+}
+
+input {
+	max-width: 80%;
+
+}
+.ContienePelicula {
+	width: 200px;
+	background: blue;
+	height: 100px;
+	overflow: hidden;
+	padding: 20px;
+	margin: 10px;
+}
+.ContienePeliculas {
+	width: 95%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+
+}
