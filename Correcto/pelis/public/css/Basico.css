@@ -1,0 +1,25 @@
+body {
+	/*background: #081c24;*/
+}
+input {
+	max-width: 80%;
+
+}
+.ContienePelicula {
+	max-width: 230px;
+	padding: 15px;
+	
+	border-radius: 4px;
+	float: left;
+	margin: 13px;
+	border: solid 2px black;
+	background: #607D8B;
+}
+.ContienePeliculas {
+	width: 95%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+
+}
