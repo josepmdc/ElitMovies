@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Controlador de pagina 1
+Route::get('/populares',	'PeliculasController@Populares');
+Route::get('/valoradas',	'PeliculasController@Valoradas');
+

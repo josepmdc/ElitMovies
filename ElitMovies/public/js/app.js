@@ -63614,6 +63614,11 @@ var MovieRow = function (_Component) {
                             { className: 'FalsoFondo', ref: 'RefFF' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
+                                { className: 'ContienePuntuaciones' },
+                                this.props.movie.vote_average
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
                                 { className: 'ContienePoster' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.props.movie.poster_path })
                             ),

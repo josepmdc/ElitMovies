@@ -119,6 +119,9 @@ export default class MovieRow extends Component {
             <div className = "ContienePelicula" style = {this.EstiloFondo} onMouseLeave={this.Cerrar.bind(this)} onMouseOver={this.Abrir.bind(this)} ref="RefPeli"  >
                 <div className = "Pelicula" >
                     <div className = "FalsoFondo" ref="RefFF">
+                         <div className="ContienePuntuaciones">
+                            {this.props.movie.vote_average}
+                        </div>
                         <div className="ContienePoster">
                             <img src={this.props.movie.poster_path}/>
                         </div>

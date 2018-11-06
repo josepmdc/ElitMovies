@@ -88,22 +88,26 @@ body {
 }
 .Visible {
 	opacity: 1;
-	height: 200px;
+	height: auto;
 	transition: all 0.6s ease;
 }
 a {
 	text-decoration: none;
 }
 .Largo {
-	height: 250px;
+	height: 280px;
 	background: #000000ad;
 }
 .FondoTrans {
 	background: #00000000;
 	transition: all 0.6s ease;
+	margin-top: 0px;
 }
 .FondoN {
 	 background: linear-gradient(180deg, #00000000, #000000);
+}
+.ContienePuntuaciones {
+	display: none;
 }
 
 
