@@ -9,19 +9,27 @@ export default class InicioPeliculas extends Component {
       super(props)
       this.state = {}
       this.ListaPopulares = []
+      this.ListaValoradas = []
       this.CargarDatosRecibidos()
 
     }
     
     CargarDatosRecibidos() 
     {
-      const results = this.props.datos.Populares.results
-      
-          
+          const results = this.props.datos.Populares.results
+  
           results.forEach(movie => {
 
             const movieRow = <MovieRow key = { movie.id } movie = { movie } />
             this.ListaPopulares.push(movieRow)
+   
+          });
+          const results2 = this.props.datos.Valoradas.results
+  
+          results2.forEach(movie => {
+
+            const movieRow = <MovieRow key = { movie.id } movie = { movie } />
+            this.ListaValoradas.push(movieRow)
    
           });
     
@@ -41,6 +49,13 @@ export default class InicioPeliculas extends Component {
          
             <div className="ContienePeliculas" >
               {this.ListaPopulares}
+            </div>
+             <div className="ContieneTituloInicio">
+              <p>Las mejor Valoradas</p>
+            </div>
+         
+            <div className="ContienePeliculas" >
+              {this.ListaValoradas}
             </div>
         </div>
           

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+body {
+    background-color: #363636;
+}
+.FalsoFondo {
+	background: #000000ad;
+}
+.ContienePeliculas {
+	width: 95%;
+    margin: auto;
+        display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.ContienePelicula {
+	width: 350px;
+}
+.ContienePoster img{
+	width: 200px;
+	height: auto;
+}
+
+.ContieneTituloInicio {
+	width: 90%;
+	padding: 5%;
+	text-align: center;
+}
+.ContieneTituloInicio p {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	color: #ffffff;
+	font-size: 60px;
+
+}

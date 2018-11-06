@@ -63425,6 +63425,7 @@ var InicioPeliculas = function (_Component) {
 
     _this.state = {};
     _this.ListaPopulares = [];
+    _this.ListaValoradas = [];
     _this.CargarDatosRecibidos();
 
     return _this;
@@ -63441,6 +63442,13 @@ var InicioPeliculas = function (_Component) {
 
         var movieRow = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__MovieRow__["a" /* default */], { key: movie.id, movie: movie });
         _this2.ListaPopulares.push(movieRow);
+      });
+      var results2 = this.props.datos.Valoradas.results;
+
+      results2.forEach(function (movie) {
+
+        var movieRow = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__MovieRow__["a" /* default */], { key: movie.id, movie: movie });
+        _this2.ListaValoradas.push(movieRow);
       });
     }
   }, {
@@ -63462,6 +63470,20 @@ var InicioPeliculas = function (_Component) {
           'div',
           { className: 'ContienePeliculas' },
           this.ListaPopulares
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'ContieneTituloInicio' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            null,
+            'Las mejor Valoradas'
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'ContienePeliculas' },
+          this.ListaValoradas
         )
       );
     }

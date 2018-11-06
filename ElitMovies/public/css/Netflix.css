@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-
+@import url('https://fonts.googleapis.com/css?family=Cinzel');
 
 body {
     background-color: #363636;
 }
-.FalsoFondo {
-	background: #000000ad;
-}
+
 .ContienePeliculas {
 	width: 95%;
     margin: auto;
@@ -14,9 +12,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.ContienePelicula {
-	width: 350px;
-}
+
 .ContienePoster img{
 	width: 200px;
 	height: auto;
@@ -34,3 +30,52 @@ body {
 	font-size: 60px;
 
 }
+.ContienePoster {
+	height: 0px;
+	overflow: hidden;
+}
+.ContieneSinopsis {
+	height: 0px;
+	overflow: hidden;
+}
+.ContienePelicula {
+	width: auto;
+    margin: 30px;
+    border-radius: 21px;
+    overflow: hidden;
+}
+.FalsoFondo {
+	background: #000000ad;
+    width: 199px;
+    /* padding: 50px; */
+    /* height: 0px; */
+    height: 109px;
+    padding: 30px;
+    background: #00000026;
+}
+.ContieneTitulo p {
+	
+	font-family: 'Montserrat', sans-serif;
+}
+.ContieneTitulo {
+	 background-image: linear-gradient(180deg, #00000000, #000000);
+    /* position: absolute; */
+    width: 200px;
+    /* left: 0; */
+    margin-left: -30px;
+    margin-top: 64px;
+    padding: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

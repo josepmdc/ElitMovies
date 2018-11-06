@@ -38,7 +38,7 @@ class BaseSimple extends Component {
            
             <Header title="Título de la web" items = 'holaaala' />
 
-             <InicioPeliculas datos={this.datos}/>
+            <InicioPeliculas datos={this.datos}/>
 
             </div>
         );

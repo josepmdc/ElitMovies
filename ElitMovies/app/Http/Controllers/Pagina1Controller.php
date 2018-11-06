@@ -29,7 +29,7 @@ class Pagina1Controller extends Controller
         array(
             'Usuario'   => "User",                          //usuario
             'Peliculas' => $this->Peliculas->Populares(),   //Peliculas
-            'Estilo'    => "Netflix",                       //Estilo
+            'Estilo'    => "Estilo",                        //Estilo
             'React'     => "BaseModificada",                //base de React
         );
         //Creo que el estilo será más bien una constante por diseño, por tanto sería una variable de la clase en el constructor, ya se cambiará en un futuro
