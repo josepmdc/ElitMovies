@@ -63520,7 +63520,6 @@ var MovieRow = function (_Component) {
         var _this = _possibleConstructorReturn(this, (MovieRow.__proto__ || Object.getPrototypeOf(MovieRow)).call(this, props));
 
         _this.UrlsFondos();
-
         _this.EstilizarFondo();
 
         return _this;
@@ -63557,42 +63556,86 @@ var MovieRow = function (_Component) {
             window.location.href = url;
         }
     }, {
+        key: 'Centrar',
+        value: function Centrar(a) //Centra el div a la pantalla
+        {
+            var w = window.innerWidth / 2;
+            var h = window.innerHeight / 2;
+            var x = a.offsetLeft;
+            var y = a.offsetTop;
+            var mw = w - x;
+            var my = h - y;
+
+            a.style.transform = 'translateX(-50%) translateX(' + mw + 'px)  translateY(-50%) ';
+        }
+    }, {
+        key: 'AbrirContenidos',
+        value: function AbrirContenidos(a) {
+            var Falso = this.refs.RefFF;
+        }
+    }, {
+        key: 'Abrir',
+        value: function Abrir(e) {
+
+            var sino = this.refs.Sino;
+            var Falso = this.refs.RefFF;
+            sino.style.height = '200px';
+            sino.classList.add('Visible');
+            Falso.style.background = '#000000ad';
+            Falso.style.transitionDelay = '';
+        }
+    }, {
+        key: 'Cerrar',
+        value: function Cerrar(e) {
+
+            var sino = this.refs.Sino;
+            var Falso = this.refs.RefFF;
+            sino.style.height = '';
+            Falso.style.background = '';
+            sino.classList.remove('Visible');
+        }
+    }, {
         key: 'render',
         value: function render() {
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'ContienePelicula', style: this.EstiloFondo },
+                'a',
+                { href: '/Pelicula/{this.movie.id}' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { className: 'Pelicula' },
+                    { className: 'ContienePelicula', style: this.EstiloFondo, onMouseLeave: this.Cerrar.bind(this), onMouseOver: this.Abrir.bind(this), ref: 'RefPeli' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'FalsoFondo' },
+                        { className: 'Pelicula' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { className: 'ContienePoster' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.props.movie.poster_path })
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'div',
-                            { className: 'ContieneTituloSinopsis' },
+                            { className: 'FalsoFondo', ref: 'RefFF' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
-                                { className: 'ContieneTitulo' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'p',
-                                    null,
-                                    ' ',
-                                    this.props.movie.title
-                                )
+                                { className: 'ContienePoster' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.props.movie.poster_path })
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
-                                { className: 'ContieneSinopsis' },
+                                { className: 'ContieneTituloSinopsis' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'p',
-                                    null,
-                                    this.props.movie.overview
+                                    'div',
+                                    { className: 'ContieneSinopsis', ref: 'Sino' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'p',
+                                        null,
+                                        this.props.movie.overview
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'ContieneTitulo' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'p',
+                                        null,
+                                        ' ',
+                                        this.props.movie.title
+                                    )
                                 )
                             )
                         )

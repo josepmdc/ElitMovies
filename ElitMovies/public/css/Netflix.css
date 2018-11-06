@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel');
 
 body {
-    background-color: #363636;
+    background-color: #031b25;
 }
 
 .ContienePeliculas {
@@ -11,6 +11,7 @@ body {
         display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    transition: all 0.4s ease;
 }
 
 .ContienePoster img{
@@ -37,12 +38,20 @@ body {
 .ContieneSinopsis {
 	height: 0px;
 	overflow: hidden;
+	    transition: all 0.8s ease;
+	    opacity: 0;
+}
+.ContieneSinopsis p {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12px;
 }
 .ContienePelicula {
 	width: auto;
     margin: 30px;
     border-radius: 21px;
     overflow: hidden;
+    transition: all 0.4s ease;
+
 }
 .FalsoFondo {
 	background: #000000ad;
@@ -51,7 +60,8 @@ body {
     /* height: 0px; */
     height: 109px;
     padding: 30px;
-    background: #00000026;
+    background: #00000000;
+    transition: all 0.4s ease;
 }
 .ContieneTitulo p {
 	
@@ -65,6 +75,21 @@ body {
     margin-left: -30px;
     margin-top: 64px;
     padding: 30px;
+}
+.ContienePelicula:hover {
+	transition: all 0.3s ease;
+	 transform: scale(1.3);
+	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.Invisible {
+	opacity: 0;
+
+}
+.Visible {
+	opacity: 1;
+}
+a {
+	text-decoration: none;
 }
 
 

@@ -6,9 +6,12 @@ export default class MovieRow extends Component {
 
     constructor(props) {
     super(props)
-    this.UrlsFondos();
-    
+    this.UrlsFondos();   
     this.EstilizarFondo();
+    
+   
+
+    
    
   }
 
@@ -42,29 +45,89 @@ export default class MovieRow extends Component {
         const url = "https://www.youtube.com/watch?v=" + "oAALE9m47dc"
         window.location.href = url
     }
+
+
+    Centrar(a) //Centra el div a la pantalla
+    {
+        var w   = (window.innerWidth)/2;
+        var h   = (window.innerHeight)/2;
+        var x   = a.offsetLeft;
+        var y   = a.offsetTop;
+        var mw  = w-x;
+        var my  = h-y;
+
+
+
+
+        a.style.transform= 'translateX(-50%) translateX('+mw+'px)  translateY(-50%) ';
+       
+
+    }
+    AbrirContenidos(a)
+    {
+        var Falso = this.refs.RefFF;
+        
+    }
+    
+    Abrir(e)
+    {
+       
+       var sino = this.refs.Sino;
+       var Falso = this.refs.RefFF;
+       sino.style.height = '200px';
+       sino.classList.add('Visible');
+       Falso.style.background = '#000000ad';
+       Falso.style.transitionDelay = '';
+      
+       
+
+    }
+
+    Cerrar(e)
+    {
+       
+       var sino = this.refs.Sino;
+       var Falso = this.refs.RefFF;
+       sino.style.height = '';
+       Falso.style.background = '';
+        sino.classList.remove('Visible');
+       
+      
+       
+
+    }
+    
+    
+
+
+
+
    
 
     
 
     render() {
+        
         return (
-            <div className = "ContienePelicula" style = {this.EstiloFondo}>
-                <div className = "Pelicula">
-                <div className = "FalsoFondo">
-                    <div className="ContienePoster">
-                        <img src={this.props.movie.poster_path}/>
-                    </div>
-                    <div className = "ContieneTituloSinopsis">
-                        <div className="ContieneTitulo">
-                            <p> { this.props.movie.title }</p>
+            <a href={'/Pelicula/{this.movie.id}'}>
+            <div className = "ContienePelicula" style = {this.EstiloFondo} onMouseLeave={this.Cerrar.bind(this)} onMouseOver={this.Abrir.bind(this)} ref="RefPeli"  >
+                <div className = "Pelicula" >
+                    <div className = "FalsoFondo" ref="RefFF">
+                        <div className="ContienePoster">
+                            <img src={this.props.movie.poster_path}/>
                         </div>
-                        <div className="ContieneSinopsis">
-                            <p>{ this.props.movie.overview }</p>
+                        <div className = "ContieneTituloSinopsis">
+                            <div className="ContieneSinopsis" ref="Sino">
+                                <p>{ this.props.movie.overview }</p>
+                            </div>
+                            <div className="ContieneTitulo">
+                                <p> { this.props.movie.title }</p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
+            </a>
 
 
 
