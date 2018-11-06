@@ -72,12 +72,12 @@ export default class MovieRow extends Component {
     Abrir(e)
     {
        
-       var sino = this.refs.Sino;
-       var Falso = this.refs.RefFF;
-       sino.style.height = '200px';
+       var sino     = this.refs.Sino;
+       var Falso    = this.refs.RefFF;
+       var Tit      = this.refs.RefTit;
        sino.classList.add('Visible');
-       Falso.style.background = '#000000ad';
-       Falso.style.transitionDelay = '';
+       Falso.classList.add('Largo');
+       Tit.classList.add('FondoTrans');
       
        
 
@@ -86,12 +86,18 @@ export default class MovieRow extends Component {
     Cerrar(e)
     {
        
-       var sino = this.refs.Sino;
-       var Falso = this.refs.RefFF;
+       var sino     = this.refs.Sino;
+       var Falso    = this.refs.RefFF;
+       var Tit      = this.refs.RefTit;
        sino.style.height = '';
-       Falso.style.background = '';
-        sino.classList.remove('Visible');
+       sino.classList.remove('Visible');
+       Falso.classList.remove('Largo');
+       Tit.classList.remove('FondoTrans');
+        
        
+       
+       
+
       
        
 
@@ -117,12 +123,13 @@ export default class MovieRow extends Component {
                             <img src={this.props.movie.poster_path}/>
                         </div>
                         <div className = "ContieneTituloSinopsis">
+                        <div className="ContieneTitulo" ref="RefTit">
+                                <p> { this.props.movie.title }</p>
+                            </div>
                             <div className="ContieneSinopsis" ref="Sino">
                                 <p>{ this.props.movie.overview }</p>
                             </div>
-                            <div className="ContieneTitulo">
-                                <p> { this.props.movie.title }</p>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
