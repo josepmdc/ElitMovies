@@ -11,12 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Auth::routes();
+
+Auth::routes(); //Rutas de login y registro
 
 Route::get('/home',		 	'HomeController@index')->name('home');
+
+//Controlador de pagina 1
 Route::get('/populares',	'Pagina1Controller@index');
+Route::get('/',				'Pagina1Controller@index');
+
+//Controlador Simple
+Route::get('/simple',		'DiseñoSimpleController@index');
+
+
+
+
+
+
+
+
+
+
 //Route::get('/', 'PrimeraPaginaController@index');

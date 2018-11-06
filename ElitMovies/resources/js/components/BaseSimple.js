@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-import Buscador from './Buscador'
+import InicioPeliculas from './ComponentsBaseSimple/InicioPeliculas'
 import $ from 'jquery'
 
 //components
@@ -15,7 +15,7 @@ import Footer from './Global/Footer';
 
 
 
-class BaseModificada extends Component {
+class BaseSimple extends Component {
     
 
     constructor(props) 
@@ -38,7 +38,7 @@ class BaseModificada extends Component {
            
             <Header title="Título de la web" items = 'holaaala' />
 
-             <Buscador datos={this.datos}/>
+             <InicioPeliculas datos={this.datos}/>
 
             </div>
         );
@@ -47,4 +47,4 @@ class BaseModificada extends Component {
 
 
 
-export default BaseModificada;
+export default BaseSimple;

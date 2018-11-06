@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\PeliculasController;
 
-class Pagina1Controller extends Controller
+class DiseñoSimpleController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -28,9 +28,9 @@ class Pagina1Controller extends Controller
         $datos =  
         array(
             'Usuario'   => "User",                          //usuario
-            'Peliculas' => $this->Peliculas->Populares(),   //Peliculas
+            'Populares' => $this->Peliculas->Valoradas(),   //Peliculas
             'Estilo'    => "Netflix",                       //Estilo
-            'React'     => "BaseModificada",                //base de React
+            'React'     => "BaseSimple",                    //base de React
         );
         //Creo que el estilo será más bien una constante por diseño, por tanto sería una variable de la clase en el constructor, ya se cambiará en un futuro
         //Vista con datos

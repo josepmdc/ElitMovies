@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import BaseModificada from './BaseModificada'
+import BaseSimple from './BaseSimple'
 
 class Root extends Component {
 
@@ -15,6 +16,10 @@ class Root extends Component {
         switch (this.datos.React) {
             case 'BaseModificada':
                 return <BaseModificada data={this.props.data} />;
+            break;
+            case 'BaseSimple':
+                 return <BaseSimple data={this.props.data} />;
+            break;
             default:
                 alert("Error, no hay base ninguna");
         }
