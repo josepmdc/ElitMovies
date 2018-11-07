@@ -52,6 +52,18 @@ class PeliculasController extends Controller
             return 0;
         }
     }
+    public function PopularesPagina($pagina)
+
+    {
+        $datos = $this->DameDatos($this->urlPopulares."&page=".$pagina,"");
+        return $datos;
+    }
+    public function ValoradasPagina($pagina)
+
+    {
+        $datos = $this->DameDatos($this->urlValoradas."&page=".$pagina,"");
+        return $datos;
+    }
 
     
     public function GetPoster($path) //Devuelve la URL del poster de la peli a pertir del valor path de la api

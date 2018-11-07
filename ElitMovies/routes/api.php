@@ -17,7 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Controlador de pagina 1
-Route::get('/populares',	'PeliculasController@Populares');
-Route::get('/valoradas',	'PeliculasController@Valoradas');
+
+Route::get('/populares',			'PeliculasController@Populares');		//Nos devuelve populares
+Route::get('/populares/{pagina}',	'PeliculasController@PopularesPagina');	//Especificamos numero pagina populares
+Route::get('/valoradas',			'PeliculasController@Valoradas');		//Mejor valoradas
+Route::get('/valoradas/{pagina}',	'PeliculasController@ValoradasPagina');	//Especificamos numero pagina valoradas
 
