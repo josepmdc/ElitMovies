@@ -28,11 +28,18 @@ return [
     'sparkpost' => [
         'secret' => env('SPARKPOST_SECRET'),
     ],
+    'facebook' => [
+        'client_id' => '2280582112014419',
+        'client_secret' => 'a06bebe514d187dde4d8234aad4e7b2f',
+        'redirect' => 'http://localhost:8000/callback',
+    ],
 
     'stripe' => [
         'model' => App\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
-    ],
+        ],
 
-];
+    ];
+
+    

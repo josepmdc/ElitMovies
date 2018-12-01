@@ -108,6 +108,25 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | PARA FACEBOOK
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
+
+    
+    'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+
+
+
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -146,6 +165,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
         /*
          * Package Service Providers...

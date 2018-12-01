@@ -25,6 +25,14 @@ Route::get('/',				'Pagina1Controller@index');
 Route::get('/simple',		'DiseñoSimpleController@index');
 
 
+//FACEBOOK
+Route::get('/redirect', 'SocialAuthFacebookController@redirect');
+Route::get('/callback', 'SocialAuthFacebookController@callback');
+
+
+Route::get('/politica-privacidad', 'HomeController@privacidad');
+
+
 
 
 
