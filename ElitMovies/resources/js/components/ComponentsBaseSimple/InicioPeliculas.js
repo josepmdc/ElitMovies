@@ -32,8 +32,7 @@ export default class InicioPeliculas extends Component {
             this.ListaValoradas.push(movieRow)
    
           });
-    
-          
+ 
     }
   
   

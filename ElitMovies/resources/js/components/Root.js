@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import BaseModificada from './BaseModificada'
-import BaseSimple from './BaseSimple'
+import ReactDOM             from 'react-dom';
+import PropTypes            from 'prop-types';
+import BaseModificada       from './BaseModificada'
+import BaseSimple           from './BaseSimple'
+import BasePeli             from './BasePeli'
 
 class Root extends Component {
 
@@ -12,22 +13,25 @@ class Root extends Component {
         this.datos = JSON.parse(this.props.data);
     }
 
-    SelectorBase() {
+    SelectorBase() 
+    {
         switch (this.datos.React) {
+
             case 'BaseModificada':
                 return <BaseModificada data={this.props.data} />;
             break;
             case 'BaseSimple':
-                 return <BaseSimple data={this.props.data} />;
+                return <BaseSimple data={this.props.data} />;
+            break;
+            case 'BasePeli':
+                return <BasePeli data={this.props.data} />;
             break;
             default:
                 alert("Error, no hay base ninguna");
         }
     }
 
-    /*static propTypes = {
-        children: PropTypes.object.isRequired
-    };*/
+    
 
     render() {
         return (this.SelectorBase())

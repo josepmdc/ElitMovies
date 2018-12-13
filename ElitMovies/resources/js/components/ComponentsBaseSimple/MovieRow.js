@@ -94,11 +94,7 @@ export default class MovieRow extends Component {
        Falso.classList.remove('Largo');
        Tit.classList.remove('FondoTrans');
         
-       
-       
-       
 
-      
        
 
     }
@@ -115,7 +111,7 @@ export default class MovieRow extends Component {
     render() {
         
         return (
-            <a href={'/Pelicula/{this.movie.id}'}>
+            <a href={'/pelicula/' + this.props.movie.id}>
             <div className = "ContienePelicula" style = {this.EstiloFondo} onMouseLeave={this.Cerrar.bind(this)} onMouseOver={this.Abrir.bind(this)} ref="RefPeli"  >
                 <div className = "Pelicula" >
                     <div className = "FalsoFondo" ref="RefFF">

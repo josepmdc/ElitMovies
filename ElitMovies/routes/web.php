@@ -17,12 +17,17 @@ Auth::routes(); //Rutas de login y registro
 
 Route::get('/home',		 	'HomeController@index')->name('home');
 
-//Controlador de pagina 1
-Route::get('/populares',	'Pagina1Controller@index');
-Route::get('/',				'Pagina1Controller@index');
+
+
+
+
 
 //Controlador Simple
-Route::get('/simple',		'DiseñoSimpleController@index');
+Route::get('/',		'DiseñoSimpleController@index');
+Route::get('/pelicula/{id}','DiseñoSimpleController@PeliculaId');//Buscar peli por id
+Route::get('/pelicula/{$Nombre}','DiseñoSimpleController@index');//Buscar peli por Nombre
+
+
 
 
 //FACEBOOK

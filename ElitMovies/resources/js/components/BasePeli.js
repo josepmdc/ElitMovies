@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import InicioPeliculas from './ComponentsBaseSimple/InicioPeliculas'
+import VerPeli from         './ComponentsBaseSimple/VerPeli'
 import $ from 'jquery'
 
 //components
@@ -16,7 +17,6 @@ import Footer from './Global/Footer';
 
 
 class BaseSimple extends Component {
-    
     
 
     constructor(props) 
@@ -39,7 +39,7 @@ class BaseSimple extends Component {
            
             <Header title="Título de la web" items = 'holaaala' />
 
-            <InicioPeliculas datos={this.datos}/>
+            <VerPeli datos={this.datos}/>
 
             </div>
         );

@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Cinzel');
 
+p {
+	font-family: 'Montserrat', sans-serif;
+}
+
+/********	-- Para Vista de Inicio	--	********/
+
 body {
     background-color: #2b2b2b;
 }
@@ -109,6 +115,114 @@ a {
 .ContienePuntuaciones {
 	display: none;
 }
+
+
+
+
+
+
+
+/********	-- Para Vista de Peli	--	********/
+
+.ContieneMenuSup {
+	width: 100%;
+	
+	
+}
+.ContieneImagenPeli img{
+	height: auto;
+	width: 200px;
+}
+.FalsoFondoOsc {
+	background: #2a3940de;
+
+}
+.ContieneDatos {
+	width: 90%;
+	max-width: 1200px;
+	margin: auto;
+	display: flex;
+	padding: 30px;
+}
+
+.ContieneTituloDatos {
+	font-family: 'Montserrat', sans-serif;
+	margin: 30px;
+}
+.ContieneInfoPuntuacion {
+	margin: 30px;
+	margin-left: 100px;
+}
+.ContieneVerTitulo {
+
+	font-size: 40px;
+}
+.ContieneTituloDatos>div {
+	margin-top: 20px;
+}
+.ContieneSynopsis {
+	width: 90%;
+	margin: auto;
+	font-size: 15px;
+	
+	color: #cacaca;
+	word-spacing: 4px;
+	padding: 20px;
+	padding-bottom: 100px;
+}
+.ContieneTituloGuia {
+	font-family: 'Montserrat', sans-serif;
+	text-align:left;
+	padding: 10px;
+	font-size: 24px;
+	color: white;
+}
+.ContienePuntuacion {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 50px;
+	margin-top: 20px;
+}
+
+.BaseGrafico, .puntuación {
+
+	width: 300px;
+	height: 20px;
+	border-radius: 50px;
+	background: #28343a;
+}
+.puntuación {
+	background: #607d8b;
+}
+.ContienePuntuacionVisual {
+	margin-top: 10px;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 800px) {
+	.ContieneDatos
+	{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.ContieneDatos >div {
+		width: 100%;
+		justify-content: center;
+		text-align: center;
+		margin: auto;
+	}
+	.ContieneImagenPeli img {
+		margin: auto;
+	}
+}
+
+
+
+
+
 
 
 
