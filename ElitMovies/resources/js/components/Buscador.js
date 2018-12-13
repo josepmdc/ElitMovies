@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieRow from './MovieRow'
+import $ from 'jquery'
 
 
 export default class Buscador extends Component {

@@ -23,3 +23,7 @@ Route::get('/populares/{pagina}',	'PeliculasController@PopularesPagina');	//Espe
 Route::get('/valoradas',			'PeliculasController@Valoradas');		//Mejor valoradas
 Route::get('/valoradas/{pagina}',	'PeliculasController@ValoradasPagina');	//Especificamos numero pagina valoradas
 
+
+// Aún no funciona el método del controlador así que lo dejo comentado
+// Route::get('/guardarComentario', 'EditorController@create'); //Guardamos los comentarios
+

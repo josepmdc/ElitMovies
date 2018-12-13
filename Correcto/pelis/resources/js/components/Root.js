@@ -23,19 +23,15 @@ class Root extends Component {
         super(props);
         //Hasta aqui los datos pasados eran en string, los pasamos a array a variable datos
         this.datos = JSON.parse(this.props.data);
-        
-        
-    
-     }
+    }
      SelectorBase()
      {
         switch(this.datos.React)
         {
             case 'BaseModificada':
                 return <BaseModificada data = {this.props.data}/>;
-
-            break;
-
+            case 'Editor':
+                return <Editor data = {this.props.data}/>;
             default :
                 alert("Error, no hay base ninguna");
 

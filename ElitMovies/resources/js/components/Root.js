@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Editor from './Editor'
 import ReactDOM             from 'react-dom';
 import PropTypes            from 'prop-types';
 import BaseModificada       from './BaseModificada'
@@ -19,13 +20,14 @@ class Root extends Component {
 
             case 'BaseModificada':
                 return <BaseModificada data={this.props.data} />;
-            break;
             case 'BaseSimple':
                 return <BaseSimple data={this.props.data} />;
             break;
             case 'BasePeli':
                 return <BasePeli data={this.props.data} />;
             break;
+            case 'Editor':
+                return <Editor data = {this.props.data} />;
             default:
                 alert("Error, no hay base ninguna");
         }

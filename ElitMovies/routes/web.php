@@ -37,7 +37,7 @@ Route::get('/callback', 'SocialAuthFacebookController@callback');
 
 Route::get('/politica-privacidad', 'HomeController@privacidad');
 
-
+Route::get('/editor', 'EditorController@index');
 
 
 
