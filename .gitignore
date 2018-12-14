@@ -2,12 +2,11 @@
 
 # dependencies
 react-client/node_modules
-node-server/node_modules
-pelis/node_modules
 ElitMovies/node_modules
 
 # testing
 /coverage
+.vscode
 
 # production
 /build
