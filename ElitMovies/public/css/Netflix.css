@@ -9,6 +9,7 @@ p {
 
 body {
     background-color: #2b2b2b;
+    height: 9000px;
 }
 
 .ContienePeliculas {
@@ -123,7 +124,149 @@ a {
 
 
 /********	-- Para Vista de Peli	--	********/
+.FalsoFondoOsc {
+	background: #2a3940de;
 
+}
+.ContieneInfoPeli {
+	padding: 30px;
+}
+
+.ContieneTodoInfo {
+	width: 90%;
+	margin: auto;
+	max-width: 1300px;
+	display: flex;
+	justify-content: space-around;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.ContieneImagenPeli img {
+	height: auto;
+	width: 300px;
+}
+
+
+.ContieneMenuSuperiorInfo {
+	display: flex;
+	justify-content: space-between;
+}
+.ContienePuntuacion {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 50px;
+	margin-top: 20px;
+}
+
+.BaseGrafico, .puntuación {
+
+	width: 300px;
+	height: 20px;
+	border-radius: 50px;
+	background: #00000091;
+}
+.puntuación {
+	background: #607d8b;
+}
+
+.ContieneVerTitulo {
+
+	font-size: 40px;
+	font-family: 'Montserrat', sans-serif;
+}
+.ContieneYear,.ContieneDirector {
+	margin-top: 10px;
+	font-family: 'Montserrat', sans-serif;
+}
+.ContieneSynopsis {
+	
+	margin: auto;
+	font-size: 15px;
+	
+	color: #cacaca;
+	word-spacing: 4px;
+	
+	padding-bottom: 100px;
+	max-width: 1200px;
+	    line-height: 21px;
+}
+.ContieneTituloGuia {
+	font-family: 'Montserrat', sans-serif;
+	text-align:left;
+	margin-bottom: 10px;
+	font-size: 24px;
+	color: white;
+}
+.ContienePuntuacion {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 50px;
+	margin-top: 20px;
+}
+
+
+.ContieneMenuInferior{
+	margin-top: 30px;
+} 
+.Fijo {
+	position: fixed;
+	
+	top: 0;
+	left: 0;
+	height: 80px;
+	overflow: hidden;
+}
+
+
+.ContieneMenuSup,.FalsoFondoOsc{
+	transition: all 0.4s ease;
+}
+.ImagenFija {
+	height: 0px;
+	overflow: hidden;
+	transition: all 0.4s ease;
+}
+.ImagenFija img {
+	height: 0px;
+	overflow: hidden;
+	transition: all 0.4s ease;
+}
+
+.TituloFijo {
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: 25px;
+	font-size: 20px;
+}
+
+.Auxi1, .Auxi2 {
+	height: 80px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+}
+.Auxi2 {
+	background: #2a3940de;
+}
+.Auxi1,.Auxi2 {
+	transition: all 0.4s ease;
+	height: 0px;
+	overflow: hidden;
+}
+.Abierto {
+	height: 80px;
+	transition: all 0.4s ease;
+}
+.Auxi2 >h1 {
+	    font-family: 'Montserrat', sans-serif;
+    margin: 24px;
+    
+    font-size: 24px;
+    color: white;
+}
+
+/*
 .ContieneMenuSup {
 	width: 100%;
 	
@@ -131,7 +274,7 @@ a {
 }
 .ContieneImagenPeli img{
 	height: auto;
-	width: 200px;
+	width: 250px;
 }
 .FalsoFondoOsc {
 	background: #2a3940de;
@@ -151,7 +294,7 @@ a {
 }
 .ContieneInfoPuntuacion {
 	margin: 30px;
-	margin-left: 100px;
+	margin-left: 50px;
 }
 .ContieneVerTitulo {
 
@@ -169,6 +312,7 @@ a {
 	word-spacing: 4px;
 	padding: 20px;
 	padding-bottom: 100px;
+	max-width: 1200px;
 }
 .ContieneTituloGuia {
 	font-family: 'Montserrat', sans-serif;
@@ -188,7 +332,7 @@ a {
 	width: 300px;
 	height: 20px;
 	border-radius: 50px;
-	background: #28343a;
+	background: #00000091;
 }
 .puntuación {
 	background: #607d8b;
@@ -217,8 +361,11 @@ a {
 	.ContieneImagenPeli img {
 		margin: auto;
 	}
+	.BaseGrafico {
+		margin: auto;
+	}
 }
-
+*/
 
 
 

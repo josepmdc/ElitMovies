@@ -52121,8 +52121,8 @@ var RichEditorExample = function (_React$Component) {
             }
 
             var classe = "titulo";
-            if (window.getSelection()) {
-                //classe = "tituloASDF";
+            if (window.getSelection().toString() > 0) {
+                classe = "tituloASDF";
             }
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -85789,11 +85789,63 @@ var VerPeli = function (_Component) {
     _this.Pelicula = _this.props.datos.Pelicula;
     _this.UrlsFondos();
     _this.EstilizarFondo();
+    //this.Menu = React.createRef()
+
+    _this.PrepararScroll(); //Preparamos las funciones para hacer el scroll
+
 
     return _this;
   }
 
   _createClass(VerPeli, [{
+    key: 'PrepararScroll',
+    value: function PrepararScroll() {
+      window.addEventListener('scroll', this.ComprobarScroll.bind(this));
+    }
+  }, {
+    key: 'ComprobarScroll',
+    value: function ComprobarScroll(e) //Comprueba que el scroll de la ventana de nuestro navegador pasa el Elemento Pelicula
+    {
+
+      //if (window.scrollY>this.myRef)
+      var Menu = this.refs.myRef;
+      if (window.scrollY >= Menu.clientHeight) {
+        this.PonerMenuSuperior();
+      } else {
+        this.QuitarMenuSuperior();
+      }
+    }
+  }, {
+    key: 'PonerMenuSuperior',
+    value: function PonerMenuSuperior() //Esta funcion coloca un Menu superior que indica el titulo y portada
+    {
+      /*
+      this.EstiloFijo= {
+            
+            position: 'fixed',
+            top: '0',
+            left: '0', 
+            marginTop: '0',
+            background: 'red'
+            
+        }
+        */
+
+      this.refs.MenuAuxi.classList.add("Abierto");
+      this.refs.MenuAuxi2.classList.add("Abierto");
+      //this.refs.MenuAuxi2.classList.add("MenuAuxi2");
+    }
+  }, {
+    key: 'QuitarMenuSuperior',
+    value: function QuitarMenuSuperior() {
+
+      this.refs.MenuAuxi.classList.remove("Abierto");
+      this.refs.MenuAuxi2.classList.remove("Abierto");
+      //this.refs.MenuAuxi.classList.remove("MenuAuxi1");
+      //this.refs.MenuAuxi2.classList.remove("MenuAuxi2");
+      //this.refs.ImagenMenu.classList.remove("ImagenFija");
+    }
+  }, {
     key: 'EstilizarFondo',
     value: function EstilizarFondo() {
       this.EstiloFondo = {
@@ -85856,103 +85908,123 @@ var VerPeli = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'Auxi1', ref: 'MenuAuxi', style: this.EstiloFondo },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'Auxi2', ref: 'MenuAuxi2' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'h1',
+              null,
+              this.Pelicula.title
+            )
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'header',
-          { className: 'ContieneMenuSup', style: this.EstiloFondo },
+          { className: 'ContieneMenuSup', ref: 'myRef', style: this.EstiloFondo },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'FalsoFondoOsc' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              null,
+              { className: 'ContieneTodoInfo' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { className: 'ContieneDatos' },
+                { className: 'ContienePortadaPeli' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
-                  { className: 'ContieneImagenPeli' },
+                  { className: 'ContieneImagenPeli', ref: 'ImagenMenu' },
                   this.DevolverImagen()
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'ContieneTituloDatos' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'ContieneVerTitulo' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'h1',
-                      null,
-                      this.Pelicula.title
-                    )
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'ContieneYear' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'h2',
-                      null,
-                      this.Pelicula.release_date
-                    )
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'ContieneDirector' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'h2',
-                      null,
-                      'James Cameron'
-                    )
-                  )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'ContieneInfoPuntuacion' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'ContienePuntuacion' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'h2',
-                      null,
-                      this.Pelicula.vote_average,
-                      ' '
-                    )
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'ContienePuntuacionVisual' },
-                    this.DevolverGrafico()
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'ContieneEtiquetas' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'h2',
-                      null,
-                      'etiquetas'
-                    )
-                  )
-                )
-              )
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              { className: 'ContieneSynopsis' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'ContieneTituloGuia' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'h3',
-                  null,
-                  'Sinopsis'
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'p',
-                null,
-                this.Pelicula.overview
+                'div',
+                { className: 'ContieneInfoPeli' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'ContieneMenuSuperiorInfo' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'ContieneTituloDatos' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'div',
+                      { className: 'ContieneVerTitulo', ref: 'TituloMenu' },
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'h1',
+                        null,
+                        this.Pelicula.title
+                      )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'div',
+                      { className: 'ContieneYear' },
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'h2',
+                        null,
+                        this.Pelicula.release_date
+                      )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'div',
+                      { className: 'ContieneDirector' },
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'h2',
+                        null,
+                        'James Cameron'
+                      )
+                    )
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'ContienePuntuacionYmas' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'div',
+                      { 'class': 'ContienePuntuacion' },
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'h2',
+                        null,
+                        this.Pelicula.vote_average
+                      )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'div',
+                      { className: 'ContienePuntuacionVisual' },
+                      this.DevolverGrafico()
+                    )
+                  )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'ContieneMenuInferior' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'ContieneResumen' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'div',
+                      { className: 'ContieneSynopsis' },
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'ContieneTituloGuia' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          'h3',
+                          null,
+                          'Sinopsis'
+                        )
+                      ),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        null,
+                        this.Pelicula.overview
+                      )
+                    )
+                  )
+                )
               )
             )
           )

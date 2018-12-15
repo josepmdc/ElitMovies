@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import MovieRow from './MovieRow'
 
@@ -12,10 +13,64 @@ export default class VerPeli extends Component {
       this.Pelicula = this.props.datos.Pelicula
       this.UrlsFondos()
       this.EstilizarFondo()
+      //this.Menu = React.createRef()
+     
+      this.PrepararScroll() //Preparamos las funciones para hacer el scroll
+     
+      
       
 
     }
+    PrepararScroll()
+    {
+      window.addEventListener('scroll', this.ComprobarScroll.bind(this));
+
+      
+    }
+    ComprobarScroll(e) //Comprueba que el scroll de la ventana de nuestro navegador pasa el Elemento Pelicula
+    {
     
+      //if (window.scrollY>this.myRef)
+      var Menu = this.refs.myRef;
+      if (window.scrollY>=Menu.clientHeight)
+      {
+       this.PonerMenuSuperior();
+      } else {
+        this.QuitarMenuSuperior();
+      }
+      
+    }
+    PonerMenuSuperior() //Esta funcion coloca un Menu superior que indica el titulo y portada
+    {
+      /*
+      this.EstiloFijo= {
+            
+            position: 'fixed',
+            top: '0',
+            left: '0', 
+            marginTop: '0',
+            background: 'red'
+            
+        }
+        */
+       
+        
+        this.refs.MenuAuxi.classList.add("Abierto");
+        this.refs.MenuAuxi2.classList.add("Abierto");
+        //this.refs.MenuAuxi2.classList.add("MenuAuxi2");
+    }
+    QuitarMenuSuperior()
+    {
+      
+      this.refs.MenuAuxi.classList.remove("Abierto");
+       this.refs.MenuAuxi2.classList.remove("Abierto");
+      //this.refs.MenuAuxi.classList.remove("MenuAuxi1");
+      //this.refs.MenuAuxi2.classList.remove("MenuAuxi2");
+      //this.refs.ImagenMenu.classList.remove("ImagenFija");
+    }
+    
+
+
     EstilizarFondo()
     {
         this.EstiloFondo = {
@@ -78,53 +133,74 @@ export default class VerPeli extends Component {
 
 
 
+      
+      
+
+
+
     render() {
+      
       return(
+
         <div>
-          
-            <header className="ContieneMenuSup" style = {this.EstiloFondo}>
-              <div className="FalsoFondoOsc">
-                <div>
-                  <div className="ContieneDatos">
-                    <div className="ContieneImagenPeli">
-                       {this.DevolverImagen()}
+            <div className="Auxi1" ref="MenuAuxi" style = {this.EstiloFondo}>
+              <div className ="Auxi2" ref="MenuAuxi2" >
+                <h1>{this.Pelicula.title}</h1>
+              </div>
+            </div>
+            <header className="ContieneMenuSup" ref="myRef"  style = {this.EstiloFondo}>
+              <div className="FalsoFondoOsc" >
+                 <div className="ContieneTodoInfo" >
+                    <div className="ContienePortadaPeli">
+                      <div className="ContieneImagenPeli" ref="ImagenMenu">
+                         {this.DevolverImagen()}
+                      </div>
                     </div>
-                    <div className="ContieneTituloDatos">
-                        <div className="ContieneVerTitulo">
-                          <h1>{this.Pelicula.title}</h1>
+                    <div className="ContieneInfoPeli">
+                      <div className="ContieneMenuSuperiorInfo">
+                          <div className="ContieneTituloDatos">
+                            <div className="ContieneVerTitulo" ref="TituloMenu">
+                              <h1>{this.Pelicula.title}</h1>
+                            </div>
+                            <div className="ContieneYear">
+                             <h2>{this.Pelicula.release_date}</h2>
+                            </div>
+                            <div className="ContieneDirector">
+                              <h2>James Cameron</h2>
+                            </div>
+                          </div>
+                          <div className="ContienePuntuacionYmas"> 
+                            <div class ="ContienePuntuacion">
+                              <h2>
+                                {this.Pelicula.vote_average}
+                              </h2>
+                            </div>
+                           
+                            <div className="ContienePuntuacionVisual">
+                             {this.DevolverGrafico()}
+                            </div>
+                          </div>
+                      </div>
+                   
+
+                      <div className="ContieneMenuInferior">
+                        <div className="ContieneResumen">
+                            <div className="ContieneSynopsis">
+                              <div className="ContieneTituloGuia">
+                                <h3>Sinopsis</h3>
+                              </div>
+                              <p>
+                                {this.Pelicula.overview}
+                              </p>
+
+                          </div>
+
                         </div>
-                      <div className="ContieneYear">
-                        <h2>{this.Pelicula.release_date}</h2>
-                      </div>
-                      <div className="ContieneDirector">
-                        <h2>James Cameron</h2>
                       </div>
                     </div>
-
-                    <div className="ContieneInfoPuntuacion">
-                      <div className="ContienePuntuacion">
-                        <h2>{this.Pelicula.vote_average} </h2>
-                      </div>
-                      <div className="ContienePuntuacionVisual">
-                         {this.DevolverGrafico()}
-                      </div>
-                      <div className="ContieneEtiquetas">
-                        <h2>etiquetas</h2>
-                      </div>
-                      
-                    </div>
-                  </div>
                 </div>
 
-                <div className="ContieneSynopsis">
-                  <div className="ContieneTituloGuia">
-                    <h3>Sinopsis</h3>
-                  </div>
-                  <p>
-                    {this.Pelicula.overview}
-                  </p>
-
-                </div>
+                
 
                </div>
             </header>
