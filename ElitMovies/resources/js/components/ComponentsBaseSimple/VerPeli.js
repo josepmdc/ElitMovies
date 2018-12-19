@@ -1,6 +1,8 @@
 
 import React, { Component } from 'react';
-import MovieRow from './MovieRow'
+import MovieRow             from './MovieRow'
+import Editor               from '../Editor.js'
+
 
 
 export default class VerPeli extends Component {
@@ -130,6 +132,36 @@ export default class VerPeli extends Component {
 
         )
     }
+    Comentarios()
+    {
+      return(
+
+   <div className="ContenedorComentarios">
+    <div className="ContieneComentarios">
+      <div className="Comentario">
+        <div className="ContieneInfoUsuario">
+          <div className="ContieneInfoUsuarioMini">
+           
+          </div>
+        </div>
+        <div className="ContieneComentarioTexto">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <Editor/>
+      </div>
+    </div>
+  </div>
+
+        );
+
+    }
 
 
 
@@ -206,6 +238,7 @@ export default class VerPeli extends Component {
             </header>
         
            {this.DevolverActores()}
+           {this.Comentarios()}
         </div>
         );
       
