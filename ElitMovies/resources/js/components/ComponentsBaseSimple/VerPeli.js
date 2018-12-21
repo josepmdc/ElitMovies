@@ -187,13 +187,13 @@ export default class VerPeli extends Component {
       
       return(
 
-        <div>
-            <div className="Auxi1" ref="MenuAuxi" style = {this.EstiloFondo}>
+        <section>
+            <header className="Auxi1" ref="MenuAuxi" style = {this.EstiloFondo}>
               <div className ="Auxi2" ref="MenuAuxi2" >
                 <h1>{this.Pelicula.title}</h1>
               </div>
-            </div>
-            <header className="ContieneMenuSup" ref="myRef"  style = {this.EstiloFondo}>
+            </header>
+            <div className="ContieneMenuSup" ref="myRef"  style = {this.EstiloFondo}>
               <div className="FalsoFondoOsc" >
                  <div className="ContieneTodoInfo" >
                     <div className="ContienePortadaPeli">
@@ -215,7 +215,7 @@ export default class VerPeli extends Component {
                             </div>
                           </div>
                           <div className="ContienePuntuacionYmas"> 
-                            <div class ="ContienePuntuacion">
+                            <div className ="ContienePuntuacion">
                               <h2>
                                 {this.Pelicula.vote_average}
                               </h2>
@@ -234,9 +234,12 @@ export default class VerPeli extends Component {
                               <div className="ContieneTituloGuia">
                                 <h3>Sinopsis</h3>
                               </div>
-                              <p>
-                                {this.Pelicula.overview}
-                              </p>
+                              <div className="ContieneSynopsisPeli">
+                                <p>
+                                  {this.Pelicula.overview}
+                                </p>
+                              </div>
+
 
                           </div>
 
@@ -248,11 +251,22 @@ export default class VerPeli extends Component {
                 
 
                </div>
-            </header>
+            </div>
+            <div className="ContieneContenidoPagina">
+              <div className="ContienePaginaContenido">
+                <div className="ContieneComentarios">
+                   <Comentarios/>
+                </div>
+                <div className="ContieneRelacionados">
+                  {this.DevolverActores()}
+                </div>
+              </div>
+              
+            </div>
             
-           {this.DevolverActores()}
-           <Comentarios/>
-        </div>
+           
+          
+        </section>
         );
       
       

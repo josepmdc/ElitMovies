@@ -13,12 +13,13 @@ class CreateUserComments extends Migration
      */
     public function up()
     {
-        Schema::create('user_comments', function (Blueprint $table) {
+        Schema::create('Comentario', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
             $table->string('contenido');
-            $table->integer('id_subcomentarios');
+            $table->integer('id_SubComentarioDe'); //El id que este será del comentario padre
             $table->integer('user_id');
+            $table->integer('Pelicula_Id');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateUserComments extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_comments');
+        Schema::dropIfExists('Comentario');
     }
 }

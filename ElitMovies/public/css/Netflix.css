@@ -117,7 +117,9 @@ a {
 	display: none;
 }
 
-
+.ContieneContenidoPagina {
+	background: #F9F9F9;
+}
 
 
 
@@ -219,6 +221,9 @@ a {
 .ContieneMenuSup,.FalsoFondoOsc{
 	transition: all 0.4s ease;
 }
+.FalsoFondoOsc {
+	min-height: 100vh;
+}
 .ImagenFija {
 	height: 0px;
 	overflow: hidden;
@@ -266,118 +271,43 @@ a {
     color: white;
 }
 
-/*
-.ContieneMenuSup {
+
+
+
+/********	-- Para Comentarios	--	********/
+
+
+.ContieneContenidoPagina {
+	width: 100%;
+	background:#F9F9F9 ;
+
+}
+.ContienePaginaContenido {
 	width: 100%;
 	
-	
-}
-.ContieneImagenPeli img{
-	height: auto;
-	width: 250px;
-}
-.FalsoFondoOsc {
-	background: #2a3940de;
-
-}
-.ContieneDatos {
-	width: 90%;
-	max-width: 1200px;
-	margin: auto;
+	max-width: 1700px;
 	display: flex;
-	padding: 30px;
-}
-
-.ContieneTituloDatos {
-	font-family: 'Montserrat', sans-serif;
-	margin: 30px;
-}
-.ContieneInfoPuntuacion {
-	margin: 30px;
-	margin-left: 50px;
-}
-.ContieneVerTitulo {
-
-	font-size: 40px;
-}
-.ContieneTituloDatos>div {
-	margin-top: 20px;
-}
-.ContieneSynopsis {
-	width: 90%;
+	justify-content: space-around;
 	margin: auto;
-	font-size: 15px;
 	
-	color: #cacaca;
-	word-spacing: 4px;
-	padding: 20px;
-	padding-bottom: 100px;
-	max-width: 1200px;
+
 }
-.ContieneTituloGuia {
-	font-family: 'Montserrat', sans-serif;
-	text-align:left;
-	padding: 10px;
-	font-size: 24px;
-	color: white;
+.ContieneComentarios {
+	width: 80%;
+	background: #ffffff;
+	
 }
-.ContienePuntuacion {
-	font-family: 'Montserrat', sans-serif;
-	font-size: 50px;
-	margin-top: 20px;
+.Comentario {
+	background: red;
+	border-radius: 5px;
+	width: 50%;
+	margin-left: 50px;	
 }
-
-.BaseGrafico, .puntuación {
-
-	width: 300px;
-	height: 20px;
-	border-radius: 50px;
-	background: #00000091;
+.ContieneRelacionados{
+	
+	width: 20%;
+	
 }
-.puntuación {
-	background: #607d8b;
-}
-.ContienePuntuacionVisual {
-	margin-top: 10px;
-}
-
-
-
-
-
-
-@media only screen and (max-width: 800px) {
-	.ContieneDatos
-	{
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.ContieneDatos >div {
-		width: 100%;
-		justify-content: center;
-		text-align: center;
-		margin: auto;
-	}
-	.ContieneImagenPeli img {
-		margin: auto;
-	}
-	.BaseGrafico {
-		margin: auto;
-	}
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

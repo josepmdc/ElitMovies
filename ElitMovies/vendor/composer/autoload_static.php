@@ -379,6 +379,7 @@ class ComposerStaticInit7320169875593ebeb3b6dbd59956da33
     );
 
     public static $classMap = array (
+        'App\\Comentario' => __DIR__ . '/../..' . '/app/Comentario.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -388,6 +389,7 @@ class ComposerStaticInit7320169875593ebeb3b6dbd59956da33
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DiseñoSimpleController' => __DIR__ . '/../..' . '/app/Http/Controllers/DiseñoSimpleController.php',
+        'App\\Http\\Controllers\\EditorController' => __DIR__ . '/../..' . '/app/Http/Controllers/EditorController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\Pagina1Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Pagina1Controller.php',
         'App\\Http\\Controllers\\PeliculasController' => __DIR__ . '/../..' . '/app/Http/Controllers/PeliculasController.php',
@@ -405,6 +407,7 @@ class ComposerStaticInit7320169875593ebeb3b6dbd59956da33
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Services\\SocialFacebookAccountService' => __DIR__ . '/../..' . '/app/Services/SocialFacebookAccountService.php',
         'App\\SocialFacebookAccount' => __DIR__ . '/../..' . '/app/SocialFacebookAccount.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',

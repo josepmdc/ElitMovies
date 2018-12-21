@@ -82493,7 +82493,7 @@ exports = module.exports = __webpack_require__(32)(false);
 
 
 // module
-exports.push([module.i, ".RichEditor-root {\n  background: #fff;\n  border: 1px solid #ddd;\n  font-family: 'Georgia', serif;\n  font-size: 14px;\n  padding: 15px;\n  border-radius: 4px;\n}\n\n.RichEditor-editor {\n  border-top: 1px solid #ddd;\n  cursor: text;\n  font-size: 16px;\n  margin-top: 10px;\n}\n\n.RichEditor-editor .public-DraftEditorPlaceholder-root, .RichEditor-editor .public-DraftEditor-content {\n  margin: 0 -15px -15px;\n  padding: 15px;\n}\n\n.public-DraftEditorPlaceholder-root {\n  position: absolute;\n  color: #999;\n}\n\n.RichEditor-editor .public-DraftEditor-content {\n  min-height: 300px;\n}\n\n.RichEditor-hidePlaceholder .public-DraftEditorPlaceholder-root {\n  display: none;\n}\n\n.RichEditor-editor .RichEditor-blockquote {\n  border-left: 5px solid #eee;\n  color: #666;\n  font-family: 'Hoefler Text', 'Georgia', serif;\n  font-style: italic;\n  margin: 16px 0;\n  padding: 10px 20px;\n}\n\n.RichEditor-editor .public-DraftStyleDefault-pre {\n  background-color: rgba(0, 0, 0, 0.05);\n  font-family: 'Inconsolata', 'Menlo', 'Consolas', monospace;\n  font-size: 16px;\n  padding: 20px;\n}\n\n.RichEditor-controls {\n  font-family: 'Helvetica', sans-serif;\n  font-size: 14px;\n  margin-bottom: 5px;\n  user-select: none;\n}\n\n.RichEditor-styleButton {\n  color: #999;\n  cursor: pointer;\n  margin-right: 16px;\n  padding: 2px 0;\n  display: inline-block;\n}\n\n.RichEditor-activeButton {\n  color: #5890ff;\n}\n\n.titulo {\n  width: 100%;\n  border: 0;\n  padding: 20px 0;\n  margin: auto;\n  background-color: #fff;\n  font-size: 20px;\n}\n\n.tituloASDF {\n  display: none;\n}", ""]);
+exports.push([module.i, ".RichEditor-root {\n  background: #ffffff;\n  border: 1px solid #ddd;\n  font-family: 'Georgia', serif;\n  font-size: 14px;\n  padding: 15px;\n  border-radius: 4px;\n}\n\n.RichEditor-editor {\n  border-top: 1px solid #ddd;\n  cursor: text;\n  font-size: 16px;\n  margin-top: 10px;\n}\n\n.RichEditor-editor .public-DraftEditorPlaceholder-root, .RichEditor-editor .public-DraftEditor-content {\n  margin: 0 -15px -15px;\n  padding: 15px;\n}\n\n.public-DraftEditorPlaceholder-root {\n  position: absolute;\n  color: #999;\n}\n\n.RichEditor-editor .public-DraftEditor-content {\n  min-height: 300px;\n}\n\n.RichEditor-hidePlaceholder .public-DraftEditorPlaceholder-root {\n  display: none;\n}\n\n.RichEditor-editor .RichEditor-blockquote {\n  border-left: 5px solid #eee;\n  color: #666;\n  font-family: 'Hoefler Text', 'Georgia', serif;\n  font-style: italic;\n  margin: 16px 0;\n  padding: 10px 20px;\n}\n\n.RichEditor-editor .public-DraftStyleDefault-pre {\n  background-color: rgba(0, 0, 0, 0.05);\n  font-family: 'Inconsolata', 'Menlo', 'Consolas', monospace;\n  font-size: 16px;\n  padding: 20px;\n}\n\n.RichEditor-controls {\n  font-family: 'Helvetica', sans-serif;\n  font-size: 14px;\n  margin-bottom: 5px;\n  user-select: none;\n}\n\n.RichEditor-styleButton {\n  color: #999;\n  cursor: pointer;\n  margin-right: 16px;\n  padding: 2px 0;\n  display: inline-block;\n}\n\n.RichEditor-activeButton {\n  color: #5890ff;\n}\n\n.titulo {\n  width: 100%;\n  border: 0;\n  padding: 20px 0;\n  margin: auto;\n  background-color: #fff;\n  font-size: 20px;\n}\n\n.tituloASDF {\n  display: none;\n}", ""]);
 
 // exports
 
@@ -85966,10 +85966,10 @@ var VerPeli = function (_Component) {
     value: function render() {
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
+        'section',
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
+          'header',
           { className: 'Auxi1', ref: 'MenuAuxi', style: this.EstiloFondo },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
@@ -85982,7 +85982,7 @@ var VerPeli = function (_Component) {
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'header',
+          'div',
           { className: 'ContieneMenuSup', ref: 'myRef', style: this.EstiloFondo },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
@@ -86041,7 +86041,7 @@ var VerPeli = function (_Component) {
                     { className: 'ContienePuntuacionYmas' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                       'div',
-                      { 'class': 'ContienePuntuacion' },
+                      { className: 'ContienePuntuacion' },
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'h2',
                         null,
@@ -86074,9 +86074,13 @@ var VerPeli = function (_Component) {
                         )
                       ),
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'p',
-                        null,
-                        this.Pelicula.overview
+                        'div',
+                        { className: 'ContieneSynopsisPeli' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          'p',
+                          null,
+                          this.Pelicula.overview
+                        )
                       )
                     )
                   )
@@ -86085,8 +86089,24 @@ var VerPeli = function (_Component) {
             )
           )
         ),
-        this.DevolverActores(),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Comentarios_js__["a" /* default */], null)
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'ContieneContenidoPagina' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'ContienePaginaContenido' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'ContieneComentarios' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Comentarios_js__["a" /* default */], null)
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'ContieneRelacionados' },
+              this.DevolverActores()
+            )
+          )
+        )
       );
     }
   }]);
