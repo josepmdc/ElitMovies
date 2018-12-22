@@ -20575,7 +20575,7 @@ var Header = function (_Component) {
           { className: 'header' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { className: 'container' },
+            { className: '' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__images_logo_png___default.a, alt: 'logo', id: 'logo' })
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -86143,10 +86143,17 @@ var Comentarios = function (_Component) {
   function Comentarios(props) {
     _classCallCheck(this, Comentarios);
 
-    return _possibleConstructorReturn(this, (Comentarios.__proto__ || Object.getPrototypeOf(Comentarios)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Comentarios.__proto__ || Object.getPrototypeOf(Comentarios)).call(this, props));
+
+    _this.ListaComentarios = [];
+
+    return _this;
   }
 
   _createClass(Comentarios, [{
+    key: 'Prueba',
+    value: function Prueba() {}
+  }, {
     key: 'DevolverInfoUsuario',
     value: function DevolverInfoUsuario() //Da la imagen, nombre e info del usuario del comentario
     {
@@ -86156,7 +86163,7 @@ var Comentarios = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'ContieneMiniImagen' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', null)
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '/Imagenes/Usuarios/1.png' })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
@@ -86165,6 +86172,51 @@ var Comentarios = function (_Component) {
             'p',
             null,
             'Nombre Perfil'
+          )
+        )
+      );
+    }
+  }, {
+    key: 'DevolverOpciones',
+    value: function DevolverOpciones() {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'MicroopCiones' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            null,
+            '123'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'button',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'glyphicon glyphicon-thumbs-up' })
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            null,
+            '900'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'button',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { 'class': 'glyphicon glyphicon-thumbs-down' })
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'button',
+            null,
+            'Comentar'
           )
         )
       );
@@ -86195,7 +86247,11 @@ var Comentarios = function (_Component) {
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
               )
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Editor_js__["a" /* default */], null)
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'ContieneOpcionesComentario' },
+              this.DevolverOpciones()
+            )
           )
         )
       );
@@ -86207,6 +86263,8 @@ var Comentarios = function (_Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         null,
+        this.Comentarios(),
+        this.Comentarios(),
         this.Comentarios()
       );
     }

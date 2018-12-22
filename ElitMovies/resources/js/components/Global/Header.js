@@ -15,7 +15,7 @@ class Header extends Component {
     return (
       <Router>
         <nav className="header">
-          <div className = "container">
+          <div className = "">
             <img src={logo} alt="logo" id="logo" />
           </div>
           <ul className="menu">

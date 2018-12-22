@@ -8,7 +8,7 @@ export default class MovieRow extends Component {
     super(props)
     this.UrlsFondos();   
     this.EstilizarFondo();
-    
+   
 
     
    

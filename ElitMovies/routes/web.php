@@ -23,7 +23,7 @@ Route::get('/home',		 	'HomeController@index')->name('home');
 
 
 //Controlador Simple
-Route::get('/',		'DiseñoSimpleController@index');
+Route::get('/',				'DiseñoSimpleController@index');
 Route::get('/pelicula/{id}','DiseñoSimpleController@PeliculaId');//Buscar peli por id
 Route::get('/pelicula/{$Nombre}','DiseñoSimpleController@index');//Buscar peli por Nombre
 
@@ -36,7 +36,6 @@ Route::get('/callback', 'SocialAuthFacebookController@callback');
 
 
 Route::get('/politica-privacidad', 'HomeController@privacidad');
-
 Route::get('/editor', 'EditorController@index');
 
 

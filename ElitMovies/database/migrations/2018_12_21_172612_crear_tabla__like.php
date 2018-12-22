@@ -24,7 +24,7 @@ class CrearTablaLike extends Migration
                 ->on('Comentario')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->boolean('Like');
+            $table->boolean('Like')->nullable();
             $table->timestamps();
 
             

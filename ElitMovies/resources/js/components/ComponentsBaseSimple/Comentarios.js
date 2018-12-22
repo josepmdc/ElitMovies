@@ -10,7 +10,13 @@ export default class Comentarios extends Component {
     constructor(props) 
     {
       super(props)
+      this.ListaComentarios = []
       
+
+    }
+
+    Prueba()
+    {
 
     }
 
@@ -22,7 +28,7 @@ export default class Comentarios extends Component {
 
                 <div className="ContieneInfoUsuarioMini">
                   <div className="ContieneMiniImagen">
-                    <img/>
+                    <img src='/Imagenes/Usuarios/1.png'/>
                   </div>
                   <div className="ContieneMiniNombrePerfil">
                     <p>Nombre Perfil</p>
@@ -30,6 +36,26 @@ export default class Comentarios extends Component {
                 </div>
 
         );
+    }
+    DevolverOpciones()
+    {
+      return(
+
+          <div className="MicroopCiones">
+            <div>
+              <p>123</p>
+              <button><span className="glyphicon glyphicon-thumbs-up"></span></button>
+            </div>
+            <div>
+              <p>900</p>
+              <button><span class="glyphicon glyphicon-thumbs-down"></span></button>
+            </div>
+            <div>
+              <button>Comentar</button>
+            </div>
+          </div>
+
+        )
     }
     Comentarios()
     {
@@ -51,7 +77,10 @@ export default class Comentarios extends Component {
                   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
               </div>
-              <Editor/>
+              <div className="ContieneOpcionesComentario">
+                {this.DevolverOpciones()}
+              </div>
+             
             </div>
           </div>
         </div>
@@ -71,6 +100,8 @@ export default class Comentarios extends Component {
       
       return(
         <div>
+          {this.Comentarios()}
+          {this.Comentarios()}
           {this.Comentarios()}
         </div>
 
