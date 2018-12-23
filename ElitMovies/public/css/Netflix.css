@@ -249,15 +249,18 @@ a {
 	top: 0;
 	left: 0;
 	width: 100%;
+	font-weight: bold;
 
 }
 .Auxi2 {
 	background: #2a3940de;
+
 }
 .Auxi1,.Auxi2 {
 	transition: all 0.4s ease;
 	height: 0px;
 	overflow: hidden;
+	z-index: 9999;
 }
 .Abierto {
 	height: 80px;
@@ -330,8 +333,16 @@ a {
 .ContieneComentarioTexto {
 	margin-top: 10px;
 }
-.ContieneComentarioTexto,.ContieneOpcionesComentario {
+.ContieneComentarioTexto,.ContieneOpcionesComentario,.ContieneTituloComentario {
 	padding-left: 30px;
+}
+.ContieneTituloComentario p{
+	font-size: 20px;
+}
+.ContieneTituloComentario{
+	padding: 7px;
+    margin-top: 10px;
+    padding-left: 30px;
 }
 button {
   border: none;
@@ -358,6 +369,7 @@ button[disabled]{
 
 .MicroopCiones {
 	display: flex;
+	margin-top: 10px;
 
 }
 .MicroopCiones>div {
@@ -368,7 +380,21 @@ button[disabled]{
 	margin: auto;
 	color: grey;
 }
-
-
+.icono {
+	font-size: 17px;
+	padding: 2px;
+	transition: all 0.4s ease;
+}
+button {
+	transform: all 0.4s ease;
+}
+* {
+     -webkit-box-sizing: unset; 
+    -moz-box-sizing: unset;
+     box-sizing: unset; 
+}
+.ContieneSubComentarios {
+	padding-left: 40px;
+}
 
 

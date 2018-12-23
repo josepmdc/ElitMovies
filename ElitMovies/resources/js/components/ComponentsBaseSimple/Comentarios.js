@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import MovieRow             from './MovieRow'
+import Comentario           from './Comentario.js'
 import Editor               from '../Editor.js'
 
 
@@ -11,83 +12,46 @@ export default class Comentarios extends Component {
     {
       super(props)
       this.ListaComentarios = []
+      const movieRow = <Comentario key= '1' />
+      this.ListaComentarios.push(movieRow)
+      this.PrepararDatos()
       
 
     }
 
-    Prueba()
+    PrepararDatos()
     {
+      $.ajax({
+      url: "http://127.0.0.1:8000/api/Comentarios",
+      success: (searchResults) => {
+        const results = searchResults.results.slice(0, 4)
 
+        var movieRows = [];
+
+        results.forEach(movie => {
+          movie.poster_src = "https://image.tmdb.org/t/p/w185" + movie.poster_path
+          if (movie.release_date !== undefined) movie.release_date = (movie.release_date).substring(0, 4)
+          //movie.genres = this.getMovieGenres(movie.media_type, movie.genre_ids);
+          if (movie.title !== undefined) {
+            const movieRow = <MovieRow key={movie.id} movie={movie} />;
+            movieRows.push(movieRow)
+          }
+        });
+
+        this.setState({ rows: movieRows })
+
+      },
+      error: (xhr, status, err) => {
+        console.log("Failed to fetch data...")
+      }
+    })
     }
 
 
 
-    DevolverInfoUsuario() //Da la imagen, nombre e info del usuario del comentario
-    {
-      return(
 
-                <div className="ContieneInfoUsuarioMini">
-                  <div className="ContieneMiniImagen">
-                    <img src='/Imagenes/Usuarios/1.png'/>
-                  </div>
-                  <div className="ContieneMiniNombrePerfil">
-                    <p>Nombre Perfil</p>
-                  </div>
-                </div>
 
-        );
-    }
-    DevolverOpciones()
-    {
-      return(
-
-          <div className="MicroopCiones">
-            <div>
-              <p>123</p>
-              <button><span className="glyphicon glyphicon-thumbs-up"></span></button>
-            </div>
-            <div>
-              <p>900</p>
-              <button><span class="glyphicon glyphicon-thumbs-down"></span></button>
-            </div>
-            <div>
-              <button>Comentar</button>
-            </div>
-          </div>
-
-        )
-    }
-    Comentarios()
-    {
-      return(
-
-         <div className="ContenedorComentarios">
-          <div className="ContieneComentarios">
-            <div className="Comentario">
-              <div className="ContieneInfoUsuario">
-                {this.DevolverInfoUsuario()}
-              </div>
-              <div className="ContieneComentarioTexto">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-              </div>
-              <div className="ContieneOpcionesComentario">
-                {this.DevolverOpciones()}
-              </div>
-             
-            </div>
-          </div>
-        </div>
-
-        );
-
-    }
+ 
 
 
 
@@ -100,9 +64,7 @@ export default class Comentarios extends Component {
       
       return(
         <div>
-          {this.Comentarios()}
-          {this.Comentarios()}
-          {this.Comentarios()}
+          {this.ListaComentarios}
         </div>
 
 

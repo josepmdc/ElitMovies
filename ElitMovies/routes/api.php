@@ -17,6 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/*--------------------------------COMENTARIOS-------------------------*/
+Route::get('/Comentarios',			'ComentariosController@ListadoComentarios');
+
+
+
+
+/*--------------------------------PELICULAS---------------------------*/
 Route::get('/pelicula/{Id}',		'PeliculasController@PeliId');			//Pelicula por Id
 Route::get('/populares',			'PeliculasController@Populares');		//Nos devuelve populares
 Route::get('/populares/{pagina}',	'PeliculasController@PopularesPagina');	//Especificamos numero pagina populares
