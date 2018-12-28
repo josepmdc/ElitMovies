@@ -3,6 +3,7 @@
 # dependencies
 react-client/node_modules
 ElitMovies/node_modules
+ElitMovies/vendor
 
 # testing
 /coverage
