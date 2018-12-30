@@ -4,3 +4,27 @@ env: flex
 runtime_config:
   document_root: public
 
+# Ensure we skip ".env", which is only for local development
+skip_files:
+  - .env
+
+env_variables:
+  # Put production environment variables here.
+  APP_LOG: errorlog
+  APP_KEY: base64:GTvUoQ9WRZiqxD+3m6Vsv0+XqV4MgFNb1VSNKRoybqE=
+  STORAGE_DIR: /tmp
+  CACHE_DRIVER: array
+  SESSION_DRIVER: cookie
+
+  ## Set these environment variables according to your CloudSQL configuration.
+  DB_HOST: sql164.main-hosting.eu.
+  DB_DATABASE: u265635767_elitd
+  DB_USERNAME: u265635767_elit
+  DB_PASSWORD: KKTt0fBtuFlf
+
+
+
+
+  
+
+
