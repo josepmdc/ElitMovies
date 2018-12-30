@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieRow from './MovieRow'
+import BotonMas from './BotonMas'
 
 
 export default class InicioPeliculas extends Component {
@@ -11,10 +12,12 @@ export default class InicioPeliculas extends Component {
       this.ListaPopulares = []
       this.ListaValoradas = []
       this.CargarDatosRecibidos()
+      this.PonerSaberMas()
 
     }
     
-    CargarDatosRecibidos() 
+    CargarDatosRecibidos() //Cargamos los datos recibidos a las listas
+
     {
           const results = this.props.datos.Populares.results
   
@@ -33,6 +36,12 @@ export default class InicioPeliculas extends Component {
    
           });
  
+    }
+    PonerSaberMas() //Añadimos al final de cada lista una opción de 'Ver más' para ir al apartado
+    {
+        const OpcionMas = <BotonMas key = 'Valoradas' dir = 'Valoradas' />
+        this.ListaValoradas.push(OpcionMas)
+        this.ListaPopulares.push(OpcionMas)
     }
   
   

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+
+
 export default class MovieRow extends Component {
 
 
@@ -116,7 +118,7 @@ export default class MovieRow extends Component {
         
         return (
             <a href={'/pelicula/' + this.props.movie.id}>
-            <div className = "ContienePelicula" style = {this.EstiloFondo} onMouseLeave={this.Cerrar.bind(this)} onMouseOver={this.Abrir.bind(this)} onload={this.Cerrar.bind(this)} ref="RefPeli"  >
+            <div className = "ContienePelicula" style = {this.EstiloFondo} onMouseLeave={this.Cerrar.bind(this)} onMouseOver={this.Abrir.bind(this)} onLoad={this.Cerrar.bind(this)} ref="RefPeli"  >
                 <div className = "Pelicula" >
                     <div className = "FalsoFondo" ref="RefFF">
                          <div className="ContienePuntuaciones">
