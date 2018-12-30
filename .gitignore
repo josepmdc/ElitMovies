@@ -5,6 +5,9 @@ react-client/node_modules
 ElitMovies/node_modules
 ElitMovies/vendor
 
+ElitMovies/.env
+ElitMovies/app.yaml
+
 # testing
 /coverage
 .vscode
