@@ -85752,7 +85752,7 @@ var BotonMas = function (_Component) {
             var Falso = this.refs.RefFF;
             var Tit = this.refs.RefTit;
             sino.classList.add('Visible');
-            Falso.classList.add('Largo');
+            Falso.classList.add('LargoMas');
             Tit.classList.add('FondoTrans');
         }
     }, {
@@ -85764,7 +85764,7 @@ var BotonMas = function (_Component) {
             var Tit = this.refs.RefTit;
             sino.style.height = '';
             sino.classList.remove('Visible');
-            Falso.classList.remove('Largo');
+            Falso.classList.remove('LargoMas');
             Tit.classList.remove('FondoTrans');
         }
     }, {
@@ -86295,6 +86295,7 @@ var Comentarios = function (_Component) {
     var movieRow = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Comentario_js__["a" /* default */], { key: '1' });
     _this.ListaComentarios.push(movieRow);
     _this.PrepararDatos();
+    alert(window.location.hostname);
 
     return _this;
   }

@@ -109,6 +109,10 @@ a {
 	height: 280px;
 	background: #000000ad;
 }
+.LargoMas {
+	height: 200px;
+	background: #000000ad;
+}
 .FondoTrans {
 	background: #00000000;
 	transition: all 0.6s ease;
@@ -124,7 +128,9 @@ a {
 .ContieneContenidoPagina {
 	background: #F9F9F9;
 }
+.BotonSaberMas {
 
+}
 
 
 

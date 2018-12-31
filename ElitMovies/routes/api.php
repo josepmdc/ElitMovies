@@ -17,8 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
 /*--------------------------------COMENTARIOS-------------------------*/
-Route::get('/Comentarios',			'ComentariosController@ListadoComentarios');
+//Comentario por pelicula
+Route::get('/Comentarios',							'ComentariosController@ListadoComentarios'); 
+//Comentario por pelicula y comentario (para obtener los comentarios de comentarios)
+Route::get('/SubComentarios',						'ComentariosController@ListadoSubComentarios'); //
 
 
 

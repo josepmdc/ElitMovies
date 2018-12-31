@@ -47,7 +47,7 @@ export default class BotonMas extends Component {
        var Falso    = this.refs.RefFF;
        var Tit      = this.refs.RefTit;
        sino.classList.add('Visible');
-       Falso.classList.add('Largo');
+       Falso.classList.add('LargoMas');
        Tit.classList.add('FondoTrans');
       
        
@@ -62,7 +62,7 @@ export default class BotonMas extends Component {
        var Tit      = this.refs.RefTit;
        sino.style.height = '';
        sino.classList.remove('Visible');
-       Falso.classList.remove('Largo');
+       Falso.classList.remove('LargoMas');
        Tit.classList.remove('FondoTrans');
         
 

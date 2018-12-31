@@ -15,14 +15,15 @@ export default class Comentarios extends Component {
       const movieRow = <Comentario key= '1' />
       this.ListaComentarios.push(movieRow)
       this.PrepararDatos()
+      //alert(window.location.hostname)
       
 
     }
 
-    PrepararDatos()
+    PrepararDatos() //Cargamos las opiniones por el Id de la pelicula
     {
       $.ajax({
-      url: "http://127.0.0.1:8000/api/Comentarios",
+      url: window.location.hostname+"?",
       success: (searchResults) => {
         const results = searchResults.results.slice(0, 4)
 

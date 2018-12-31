@@ -20,6 +20,7 @@ class PeliculasController extends Controller
         $this->urlPopulares = "https://api.themoviedb.org/3/discover/movie?api_key=1b5adf76a72a13bad99b8fc0c68cb085&language=es&sort_by=popularity.desc";
         $this->urlValoradas = "https://api.themoviedb.org/3/discover/movie?api_key=1b5adf76a72a13bad99b8fc0c68cb085&language=es&sort_by=vote_average.desc&include_adult=false&include_video=true&vote_count.gte=9000";
         $this->ApiCodigo = "1b5adf76a72a13bad99b8fc0c68cb085";
+         return view('privacidad');
     }
 
 
@@ -84,7 +85,6 @@ class PeliculasController extends Controller
         $URLId = "https://api.themoviedb.org/3/movie/".$Id."?api_key=".$this->ApiCodigo."&language=es";
         $datos = $this->DameDatos($URLId,"");
         return $datos;
-
 
     }
     

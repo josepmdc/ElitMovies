@@ -17,10 +17,11 @@ class CreateUserComments extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->string('contenido');
-            $table->integer('id_SubComentarioDe'); //El id que este será del comentario padre
+            $table->integer('id_SubComentarioDe')->nullable(); //El id que este será del comentario padre
             $table->integer('user_id');
             $table->integer('Pelicula_Id');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 
