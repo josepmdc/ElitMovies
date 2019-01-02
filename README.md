@@ -1,8 +1,8 @@
 # ElitMovies
 Proyecto final Desarrollo de Aplicaciones Multiplataforma
 
-## Código del cliente de Android aqui:
-####[ElitMovies-Android](https://github.com/josepm98/ElitMovies-Android)
+### Código del cliente de Android aqui:
+[ElitMovies-Android](https://github.com/josepm98/ElitMovies-Android)
 
 Aplicación estilo wiki, dónde van a salir peliculas y series con su poster y una breve descripción. En el perfil de cada película/serie los usuarios pueden colgar su review, fan theory, etc...
 
