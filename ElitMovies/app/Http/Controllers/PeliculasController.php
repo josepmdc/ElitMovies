@@ -93,7 +93,9 @@ class PeliculasController extends Controller
 
     public function Trailer($Id) //Devuelve la url de vídeo de trailer de pelicula por su Id
     {
-        
+        $URLId = "http://api.themoviedb.org/3/movie/".$Id."/videos?api_key=".$this->ApiCodigo."&language=es";
+        $datos = $this->DameDatos($URLId,"");
+        return $datos;
     }
     
 }

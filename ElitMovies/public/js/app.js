@@ -28315,6 +28315,8 @@ var Comentarios = function (_Component) {
       isLoaded: false,
       items: []
     };
+    //alert(window.location.hostname+":"+window.location.port+"/api/SubComentarios?IdComentario="+this.props.datos.id+"&IdPelicula=155&page=1")
+
 
     return _this;
   }
@@ -28418,7 +28420,7 @@ var Comentarios = function (_Component) {
 
       this.PonerCargador(); //Añadimos un loader sencillo que indique que se estan cargando los datos
 
-      fetch("http://127.0.0.1:8000/api/SubComentarios?IdComentario=" + this.props.datos.id + "&IdPelicula=155&page=1").then(function (res) {
+      fetch("http://" + window.location.hostname + ":" + window.location.port + "/api/SubComentarios?IdComentario=" + this.props.datos.id + "&IdPelicula=155&page=1").then(function (res) {
         return res.json();
       }).then(function (result) {
         var ListadoComemtarios = [];
@@ -86574,7 +86576,7 @@ var Comentarios = function (_Component) {
     {
       var _this2 = this;
 
-      fetch("http://127.0.0.1:8000/api/Comentarios?IdPelicula=" + this.props.idPelicula + "&page=1").then(function (res) {
+      fetch("http://" + window.location.hostname + ":" + window.location.port + "/api/Comentarios?IdPelicula=" + this.props.idPelicula + "&page=1").then(function (res) {
         return res.json();
       }).then(function (result) {
         var ListadoComemtarios = [];

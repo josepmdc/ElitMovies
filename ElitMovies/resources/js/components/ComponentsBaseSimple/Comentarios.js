@@ -30,7 +30,7 @@ export default class Comentarios extends Component {
 
     PrepararDatos() //Cargamos las opiniones por el Id de la pelicula
     {
-      fetch("http://127.0.0.1:8000/api/Comentarios?IdPelicula="+this.props.idPelicula+"&page=1")
+      fetch("http://"+window.location.hostname+":"+window.location.port+"/api/Comentarios?IdPelicula="+this.props.idPelicula+"&page=1")
       .then(res => res.json())
       .then(
 
@@ -85,7 +85,8 @@ export default class Comentarios extends Component {
     }
 
 
-    
+
+
 
     CargarEditorComentario()//Vemos si el usuario NO ha añadido una reseña de esta pelicula, en tal caso ponemos el editor, en caso contrario mostramos la reseña del usuario
     {

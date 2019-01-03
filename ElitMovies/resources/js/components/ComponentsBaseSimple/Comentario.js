@@ -16,6 +16,7 @@ export default class Comentarios extends Component {
         isLoaded: false,
         items: []
       };
+      //alert(window.location.hostname+":"+window.location.port+"/api/SubComentarios?IdComentario="+this.props.datos.id+"&IdPelicula=155&page=1")
       
       
 
@@ -72,7 +73,7 @@ export default class Comentarios extends Component {
     {
       this.PonerCargador() //Añadimos un loader sencillo que indique que se estan cargando los datos
 
-      fetch("http://127.0.0.1:8000/api/SubComentarios?IdComentario="+this.props.datos.id+"&IdPelicula=155&page=1")
+      fetch("http://"+window.location.hostname+":"+window.location.port+"/api/SubComentarios?IdComentario="+this.props.datos.id+"&IdPelicula=155&page=1")
       .then(res => res.json())
       .then(
 
