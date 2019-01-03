@@ -35,6 +35,8 @@ class PeliculasController extends Controller
         $datos = $this->DameDatos($this->urlPopulares,"");
         return $datos;
     }
+
+    
     public function Valoradas()
     {
          $datos = $this->DameDatos($this->urlValoradas,"");
@@ -82,10 +84,16 @@ class PeliculasController extends Controller
     }
     public function PeliId($Id) //Devuelve la Pelicula por su Id
     {
+
         $URLId = "https://api.themoviedb.org/3/movie/".$Id."?api_key=".$this->ApiCodigo."&language=es";
         $datos = $this->DameDatos($URLId,"");
         return $datos;
 
+    }
+
+    public function Trailer($Id) //Devuelve la url de vídeo de trailer de pelicula por su Id
+    {
+        
     }
     
 }

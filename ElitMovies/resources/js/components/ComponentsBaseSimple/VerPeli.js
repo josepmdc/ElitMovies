@@ -255,7 +255,7 @@ export default class VerPeli extends Component {
             <div className="ContieneContenidoPagina">
               <div className="ContienePaginaContenido">
                 <div className="ContieneComentarios">
-                   <Comentarios/>
+                   <Comentarios idPelicula = {this.Pelicula.id}/>
                 </div>
                 <div className="ContieneRelacionados">
                   {this.DevolverActores()}

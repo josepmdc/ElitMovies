@@ -23,13 +23,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Comentario por pelicula
 Route::get('/Comentarios',							'ComentariosController@ListadoComentarios'); 
 //Comentario por pelicula y comentario (para obtener los comentarios de comentarios)
-Route::get('/SubComentarios',						'ComentariosController@ListadoSubComentarios'); //
+Route::get('/SubComentarios',						'ComentariosController@ListadoSubComentarios'); 
+
+
+
+
+/*--------------------------------USUARIO-----------------------------*/
+//Comentario por pelicula
+Route::get('/Comentarios',							'ComentariosController@ListadoComentarios'); 
+//Comentario por pelicula y comentario (para obtener los comentarios de comentarios)
+Route::get('/SubComentarios',						'ComentariosController@ListadoSubComentarios'); 
 
 
 
 
 /*--------------------------------PELICULAS---------------------------*/
 Route::get('/pelicula/{Id}',		'PeliculasController@PeliId');			//Pelicula por Id
+Route::get('/pelicula/trailer/{Id}','PeliculasController@Trailer');			//Devuelve trailer de película
 Route::get('/populares',			'PeliculasController@Populares');		//Nos devuelve populares
 Route::get('/populares/{pagina}',	'PeliculasController@PopularesPagina');	//Especificamos numero pagina populares
 Route::get('/valoradas',			'PeliculasController@Valoradas');		//Mejor valoradas

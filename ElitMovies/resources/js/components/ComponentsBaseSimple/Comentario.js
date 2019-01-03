@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import MovieRow             from './MovieRow'
 import Editor               from '../Editor.js'
+import Comentario           from './Comentario.js'
 
 
 
@@ -10,6 +11,11 @@ export default class Comentarios extends Component {
     constructor(props) 
     {
       super(props)
+      this.state = {
+        error: null,
+        isLoaded: false,
+        items: []
+      };
       
       
 
@@ -28,7 +34,7 @@ export default class Comentarios extends Component {
                     <img src='/Imagenes/Usuarios/1.png'/>
                   </div>
                   <div className="ContieneMiniNombrePerfil">
-                    <p>Nombre Perfil</p> 
+                    <p>Nombre Perfil de id {this.props.datos.id}</p> 
                   </div>
                 </div>
 
@@ -36,7 +42,7 @@ export default class Comentarios extends Component {
     }
 
 
-    DevolverOpciones()
+    DevolverOpciones()  
     {
       return(
 
@@ -52,6 +58,88 @@ export default class Comentarios extends Component {
             <div>
               <button><p>Comentar</p></button>
             </div>
+            <div>
+              <button onClick={this.CargarSubComentarios.bind(this)}><p>Ver Comentarios</p></button>
+            </div>
+            <div className="ContieneCargador" >
+              <div className="loader" ref="Cargador"></div>
+            </div>
+          </div>
+
+        )
+    }
+    CargarSubComentarios(e) //Cargamos los subcomentarios de este comentario
+    {
+      this.PonerCargador() //Añadimos un loader sencillo que indique que se estan cargando los datos
+
+      fetch("http://127.0.0.1:8000/api/SubComentarios?IdComentario="+this.props.datos.id+"&IdPelicula=155&page=1")
+      .then(res => res.json())
+      .then(
+
+
+        (result) => {
+          var ListadoComemtarios = [];
+          const resultados = result.data;
+
+          resultados.forEach(coment => {
+            
+            const comentarioIn = <Comentario key= {coment.id} datos = {coment} />
+            ListadoComemtarios.push(comentarioIn)
+
+          });
+
+          this.setState({
+            items: ListadoComemtarios
+          });
+          //alert('cargado');
+          this.CargaSubComentarios();
+          this.QuitarCargador() //Añadimos un loader sencillo que indique que se estan cargando los datos
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+    }
+
+
+    PonerCargador()//Añade loader pequeño
+    {
+      var contiene  = this.refs.Cargador;
+      contiene.classList.add('Visible');
+
+    }
+    QuitarCargador()
+    {
+      var contiene  = this.refs.Cargador;
+      contiene.classList.remove('Visible');
+    }
+
+
+
+
+   
+
+
+    CargaSubComentarios()
+    {
+       const { error, isLoaded, items } = this.state;
+      return(
+
+          <div className="ContieneSubComentarios">
+                {items.map(item => (
+              <div >
+                
+                {item}
+                
+
+              </div>
+            ))}
           </div>
 
         )
@@ -69,16 +157,11 @@ export default class Comentarios extends Component {
                 {this.DevolverInfoUsuario()}
               </div>
               <div className="ContieneTituloComentario">
-                <p>La mejor película de mi vida</p>
+                <p>{this.props.datos.titulo}</p>
               </div>
               <div className="ContieneComentarioTexto">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  {this.props.datos.contenido}
                 </p>
               </div>
               <div className="ContieneOpcionesComentario">
@@ -87,50 +170,8 @@ export default class Comentarios extends Component {
              
             </div>
 
-            <div className="ContieneSubComentarios">
-                <div className="Comentario">
-                  <div className="ContieneInfoUsuario">
-                    {this.DevolverInfoUsuario()}
-                  </div>
-                  <div className="ContieneComentarioTexto">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                  </div>
-                  <div className="ContieneOpcionesComentario">
-                    {this.DevolverOpciones()}
-                  </div>
-               
-              </div>
-               <div className="ContieneSubComentarios">
-                <div className="Comentario">
-                  <div className="ContieneInfoUsuario">
-                    {this.DevolverInfoUsuario()}
-                  </div>
-                  <div className="ContieneComentarioTexto">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                  </div>
-                  <div className="ContieneOpcionesComentario">
-                    {this.DevolverOpciones()}
-                  </div>
-               
-              </div>
-              
-            </div>
-              
-            </div>
+            {this.CargaSubComentarios()}
+
 
           </div>
         </div>
@@ -150,8 +191,6 @@ export default class Comentarios extends Component {
       
       return(
         <div>
-          {this.Comentarios()}
-          {this.Comentarios()}
           {this.Comentarios()}
         </div>
 

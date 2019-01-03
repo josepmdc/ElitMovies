@@ -11,61 +11,114 @@ export default class Comentarios extends Component {
     constructor(props) 
     {
       super(props)
+      this.state = {
+        error: null,
+        isLoaded: false,
+        items: []
+      };
       this.ListaComentarios = []
       const movieRow = <Comentario key= '1' />
-      this.ListaComentarios.push(movieRow)
+      //this.ListaComentarios.push(movieRow)
+      
       this.PrepararDatos()
-      //alert(window.location.hostname)
+
+
+      
       
 
     }
 
     PrepararDatos() //Cargamos las opiniones por el Id de la pelicula
     {
-      $.ajax({
-      url: window.location.hostname+"?",
-      success: (searchResults) => {
-        const results = searchResults.results.slice(0, 4)
+      fetch("http://127.0.0.1:8000/api/Comentarios?IdPelicula="+this.props.idPelicula+"&page=1")
+      .then(res => res.json())
+      .then(
 
-        var movieRows = [];
 
-        results.forEach(movie => {
-          movie.poster_src = "https://image.tmdb.org/t/p/w185" + movie.poster_path
-          if (movie.release_date !== undefined) movie.release_date = (movie.release_date).substring(0, 4)
-          //movie.genres = this.getMovieGenres(movie.media_type, movie.genre_ids);
-          if (movie.title !== undefined) {
-            const movieRow = <MovieRow key={movie.id} movie={movie} />;
-            movieRows.push(movieRow)
-          }
-        });
+        (result) => {
+          var ListadoComemtarios = [];
+          const resultados = result.data;
 
-        this.setState({ rows: movieRows })
+          resultados.forEach(coment => {
+            
+            const comentarioIn = <Comentario key= {coment.id} datos = {coment} />
+            ListadoComemtarios.push(comentarioIn)
 
-      },
-      error: (xhr, status, err) => {
-        console.log("Failed to fetch data...")
-      }
-    })
+          });
+
+          this.setState({
+            items: ListadoComemtarios
+          });
+          //alert('cargado');
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  
+    }
+
+
+
+
+    CargarComentarios()
+    {
+      const { error, isLoaded, items } = this.state;
+      return (
+        <div>
+          {items.map(item => (
+              <div >
+                
+                {item}
+                
+
+              </div>
+            ))}
+        </div>
+        );
+    }
+
+
+    
+
+    CargarEditorComentario()//Vemos si el usuario NO ha añadido una reseña de esta pelicula, en tal caso ponemos el editor, en caso contrario mostramos la reseña del usuario
+    {
+      return(
+
+          <div className = "ContieneCommentPropio" onClick={this.ComprobarInicio.bind(this)}>
+            <Editor/>
+          </div>
+
+        )
+    }
+
+
+
+    ComprobarInicio() //Comprobamos que haya una sesión iniciada 
+    {
+      alert('Debes iniciar sesión')
     }
 
 
 
 
 
- 
-
-
-
-      
-      
-
-
 
     render() {
-      
+       
       return(
         <div>
-          {this.ListaComentarios}
+
+          {this.CargarEditorComentario()}
+          {this.CargarComentarios()}
+          
+          
         </div>
 
 

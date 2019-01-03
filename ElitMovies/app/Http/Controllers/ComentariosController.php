@@ -39,7 +39,7 @@ class ComentariosController extends Controller
             ->where('id_SubComentarioDe',   '=',0)
             ->orWhere('id_SubComentarioDe', '=',null)
             ->Paginate(15);
-        return $comentarios;
+        return json_encode($comentarios);
 
     }
 

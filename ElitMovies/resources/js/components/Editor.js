@@ -105,7 +105,7 @@ class RichEditorExample extends React.Component {
                         handleKeyCommand={this.handleKeyCommand}
                         onChange={this.onChange}
                         onTab={this.onTab}
-                        placeholder="Escribe tus cositas  ⚆_⚆ "
+                        placeholder="Escribe tu reseña"
                         ref="editor"
                         spellCheck={true}
                     />
