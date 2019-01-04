@@ -2,6 +2,12 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;//Necesario para solicitudes
+use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Factory;
+use \Illuminate\Pagination\Paginator;
+use \App\User;
+
+
 class PeliculasController extends Controller
 {
     /**
@@ -93,10 +99,26 @@ class PeliculasController extends Controller
 
     public function Trailer($Id) //Devuelve la url de vídeo de trailer de pelicula por su Id
     {
-        $URLId = "http://api.themoviedb.org/3/movie/".$Id."/videos?api_key=".$this->ApiCodigo."&language=es";
+        $URLId = "http://api.themoviedb.org/3/movie/".$Id."/videos?api_key=".$this->ApiCodigo;
         $datos = $this->DameDatos($URLId,"");
         return $datos;
     }
+
+    
+
+    public function GetActores($Id) //Devuelve los actores que han participado en la película --NO HE PODIDO HACER UN PAGINATE--
+    {
+        $URLId = "https://api.themoviedb.org/3/movie/".$Id."/credits?api_key=".$this->ApiCodigo;
+        $data = ['id' => 1, 'comment' => 'My comment'];
+        
+        $datos = $this->DameDatos($URLId,"");
+        
+        
+        return $datos;
+    }
+
+
+    
     
 }
 

@@ -17,7 +17,7 @@ export default class Comentarios extends Component {
         items: []
       };
       //alert(window.location.hostname+":"+window.location.port+"/api/SubComentarios?IdComentario="+this.props.datos.id+"&IdPelicula=155&page=1")
-      
+      var Cargado = false;
       
 
     }
@@ -71,41 +71,47 @@ export default class Comentarios extends Component {
     }
     CargarSubComentarios(e) //Cargamos los subcomentarios de este comentario
     {
-      this.PonerCargador() //Añadimos un loader sencillo que indique que se estan cargando los datos
+      if (!this.state.isLoaded)
+      {
+        this.PonerCargador() //Añadimos un loader sencillo que indique que se estan cargando los datos
 
-      fetch("http://"+window.location.hostname+":"+window.location.port+"/api/SubComentarios?IdComentario="+this.props.datos.id+"&IdPelicula=155&page=1")
-      .then(res => res.json())
-      .then(
+          fetch("http://"+window.location.hostname+":"+window.location.port+"/api/SubComentarios?IdComentario="+this.props.datos.id+"&IdPelicula=155&page=1")
+          .then(res => res.json())
+          .then(
 
 
-        (result) => {
-          var ListadoComemtarios = [];
-          const resultados = result.data;
+            (result) => {
+              var ListadoComemtarios = [];
+              const resultados = result.data;
 
-          resultados.forEach(coment => {
-            
-            const comentarioIn = <Comentario key= {coment.id} datos = {coment} />
-            ListadoComemtarios.push(comentarioIn)
+              resultados.forEach(coment => {
+                
+                const comentarioIn = <Comentario key= {coment.id} datos = {coment} />
+                ListadoComemtarios.push(comentarioIn)
 
-          });
+              });
 
-          this.setState({
-            items: ListadoComemtarios
-          });
-          //alert('cargado');
-          this.CargaSubComentarios();
-          this.QuitarCargador() //Añadimos un loader sencillo que indique que se estan cargando los datos
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
+              this.setState({
+                items: ListadoComemtarios,
+                isLoaded: true
+
+              });
+              //alert('cargado');
+              this.CargaSubComentarios();
+              this.QuitarCargador() //Añadimos un loader sencillo que indique que se estan cargando los datos
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            (error) => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
       )
+        } 
+      
     }
 
 

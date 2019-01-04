@@ -28316,7 +28316,7 @@ var Comentarios = function (_Component) {
       items: []
     };
     //alert(window.location.hostname+":"+window.location.port+"/api/SubComentarios?IdComentario="+this.props.datos.id+"&IdPelicula=155&page=1")
-
+    var Cargado = false;
 
     return _this;
   }
@@ -28418,36 +28418,40 @@ var Comentarios = function (_Component) {
     {
       var _this2 = this;
 
-      this.PonerCargador(); //Añadimos un loader sencillo que indique que se estan cargando los datos
+      if (!this.state.isLoaded) {
+        this.PonerCargador(); //Añadimos un loader sencillo que indique que se estan cargando los datos
 
-      fetch("http://" + window.location.hostname + ":" + window.location.port + "/api/SubComentarios?IdComentario=" + this.props.datos.id + "&IdPelicula=155&page=1").then(function (res) {
-        return res.json();
-      }).then(function (result) {
-        var ListadoComemtarios = [];
-        var resultados = result.data;
+        fetch("http://" + window.location.hostname + ":" + window.location.port + "/api/SubComentarios?IdComentario=" + this.props.datos.id + "&IdPelicula=155&page=1").then(function (res) {
+          return res.json();
+        }).then(function (result) {
+          var ListadoComemtarios = [];
+          var resultados = result.data;
 
-        resultados.forEach(function (coment) {
+          resultados.forEach(function (coment) {
 
-          var comentarioIn = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Comentario_js__["a" /* default */], { key: coment.id, datos: coment });
-          ListadoComemtarios.push(comentarioIn);
+            var comentarioIn = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Comentario_js__["a" /* default */], { key: coment.id, datos: coment });
+            ListadoComemtarios.push(comentarioIn);
+          });
+
+          _this2.setState({
+            items: ListadoComemtarios,
+            isLoaded: true
+
+          });
+          //alert('cargado');
+          _this2.CargaSubComentarios();
+          _this2.QuitarCargador(); //Añadimos un loader sencillo que indique que se estan cargando los datos
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        function (error) {
+          _this2.setState({
+            isLoaded: true,
+            error: error
+          });
         });
-
-        _this2.setState({
-          items: ListadoComemtarios
-        });
-        //alert('cargado');
-        _this2.CargaSubComentarios();
-        _this2.QuitarCargador(); //Añadimos un loader sencillo que indique que se estan cargando los datos
-      },
-      // Note: it's important to handle errors here
-      // instead of a catch() block so that we don't swallow
-      // exceptions from actual bugs in components.
-      function (error) {
-        _this2.setState({
-          isLoaded: true,
-          error: error
-        });
-      });
+      }
     }
   }, {
     key: 'PonerCargador',

@@ -39,11 +39,21 @@ Route::get('/SubComentarios',						'ComentariosController@ListadoSubComentarios'
 
 /*--------------------------------PELICULAS---------------------------*/
 Route::get('/pelicula/{Id}',		'PeliculasController@PeliId');			//Pelicula por Id
-Route::get('/pelicula/trailer/{Id}','PeliculasController@Trailer');			//Devuelve trailer de película
+Route::get('/trailer	',			'PeliculasController@Trailer');			//Devuelve trailer de película
 Route::get('/populares',			'PeliculasController@Populares');		//Nos devuelve populares
 Route::get('/populares/{pagina}',	'PeliculasController@PopularesPagina');	//Especificamos numero pagina populares
 Route::get('/valoradas',			'PeliculasController@Valoradas');		//Mejor valoradas
 Route::get('/valoradas/{pagina}',	'PeliculasController@ValoradasPagina');	//Especificamos numero pagina valoradas
+
+
+
+
+
+
+/*--------------------------------ACTORES-----------------------------*/
+//Comentario por pelicula
+Route::get('/pelicula/actores/{Id}',				'PeliculasController@GetActores'); 
+
 
 
 // Aún no funciona el método del controlador así que lo dejo comentado
