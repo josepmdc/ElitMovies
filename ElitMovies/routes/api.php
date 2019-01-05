@@ -29,11 +29,6 @@ Route::get('/SubComentarios',						'ComentariosController@ListadoSubComentarios'
 
 
 /*--------------------------------USUARIO-----------------------------*/
-//Comentario por pelicula
-Route::get('/Comentarios',							'ComentariosController@ListadoComentarios'); 
-//Comentario por pelicula y comentario (para obtener los comentarios de comentarios)
-Route::get('/SubComentarios',						'ComentariosController@ListadoSubComentarios'); 
-
 
 
 
