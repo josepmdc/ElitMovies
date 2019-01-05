@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Editor               from '../Editor.js'
 import Comentarios          from './Comentarios.js'
+import Actor                from './Actor.js'
 
 
 
@@ -11,13 +12,18 @@ export default class VerPeli extends Component {
     {
       
       super(props)
-      this.state = {}
+       this.state = {
+        error: null,
+        isLoaded: false,
+        actores: []
+      };
       this.Pelicula = this.props.datos.Pelicula
       this.UrlsFondos()
       this.EstilizarFondo()
       //this.Menu = React.createRef()
      
       this.PrepararScroll() //Preparamos las funciones para hacer el scroll
+      this.CargarActores()
      
       
       
@@ -105,18 +111,100 @@ export default class VerPeli extends Component {
         <div className="ContienePersonajes">
             <div className="ContieneInfo">
                 <div className="ContieneTituloAct">
-                    <h2>
-                        Actores
-                    </h2>
-                </div>
-                <div className="ContienePersonajes">
+                    
+                        <p>Actores</p>
                     
                 </div>
+                 {this.Cargador()}
+                <div className="ContienePersonajeslist">
+                    {this.PonerActores()}
+                   
+                </div>
+                <div className="VerMasActores">
+                  <button  onClick={this.AbrirTodos.bind(this)}> Ver más </button>
+                </div>
+                
             </div>   
         </div>
 
         )
     }
+    AbrirTodos()
+    {
+      this.refs.ConteneActores.classList.add("ActoresAbierto");
+    }
+    Cargador()
+    {
+      {
+      return (
+        <div ref= "CargadorActor" className="ContieneCargadorActores">
+            <div className="CargadorActores"></div>
+        </div>
+
+        )
+    }
+    }
+    CargarActores()
+    {
+        fetch("http://"+window.location.hostname+":"+window.location.port+"/api/pelicula/actores/"+this.Pelicula.id)
+        .then(res => res.json())
+        .then(
+
+
+          (result) => {
+            var ListadoComemtarios = [];
+            const resultados = result.cast;
+
+            resultados.forEach(coment => {
+              
+              const comentarioIn = <Actor key= {coment.id} datos = {coment} />
+              ListadoComemtarios.push(comentarioIn)
+
+            });
+
+            this.setState({
+              actores: ListadoComemtarios
+            });
+            this.QuitarCargadorActores()
+          },
+          // Note: it's important to handle errors here
+          // instead of a catch() block so that we don't swallow
+          // exceptions from actual bugs in components.
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        )
+    }
+    QuitarCargadorActores()
+    {
+      var cargador = this.refs.CargadorActor;
+      cargador.classList.add("CargadorActorAbierto")
+    }
+
+
+    PonerActores()
+    {
+      const { error, isLoaded, actores } = this.state;
+      return (
+        <div ref="ConteneActores">
+          {actores.map(item => (
+              <div >
+                
+                {item}
+                
+
+              </div>
+            ))}
+        </div>
+        );
+    }
+
+
+
+
     DevolverGrafico() //Devuelve los divs de puntuación
     {
       this.Longitud = {
@@ -132,53 +220,7 @@ export default class VerPeli extends Component {
 
         )
     }
-    DevolverInfoUsuario() //Da la imagen, nombre e info del usuario del comentario
-    {
-      return(
 
-                <div className="ContieneInfoUsuarioMini">
-                  <div className="ContieneMiniImagen">
-                    <img/>
-                  </div>
-                  <div className="ContieneMiniNombrePerfil">
-                    <p>Nombre Perfil</p>
-                  </div>
-                </div>
-
-        );
-    }
-    Comentarios()
-    {
-      return(
-
-         <div className="ContenedorComentarios">
-          <div className="ContieneComentarios">
-            <div className="Comentario">
-              <div className="ContieneInfoUsuario">
-                {this.DevolverInfoUsuario()}
-              </div>
-              <div className="ContieneComentarioTexto">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-              </div>
-              <Editor/>
-            </div>
-          </div>
-        </div>
-
-        );
-
-    }
-
-
-
-      
       
 
 

@@ -28553,7 +28553,7 @@ var Comentarios = function (_Component) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(103);
-module.exports = __webpack_require__(269);
+module.exports = __webpack_require__(270);
 
 
 /***/ }),
@@ -86180,6 +86180,7 @@ var BaseSimple = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Editor_js__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Comentarios_js__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Actor_js__ = __webpack_require__(269);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -86187,6 +86188,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -86200,14 +86202,18 @@ var VerPeli = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (VerPeli.__proto__ || Object.getPrototypeOf(VerPeli)).call(this, props));
 
-    _this.state = {};
+    _this.state = {
+      error: null,
+      isLoaded: false,
+      actores: []
+    };
     _this.Pelicula = _this.props.datos.Pelicula;
     _this.UrlsFondos();
     _this.EstilizarFondo();
     //this.Menu = React.createRef()
 
     _this.PrepararScroll(); //Preparamos las funciones para hacer el scroll
-
+    _this.CargarActores();
 
     return _this;
   }
@@ -86296,13 +86302,101 @@ var VerPeli = function (_Component) {
             'div',
             { className: 'ContieneTituloAct' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'h2',
+              'p',
               null,
               'Actores'
             )
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'ContienePersonajes' })
+          this.Cargador(),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'ContienePersonajeslist' },
+            this.PonerActores()
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'VerMasActores' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'button',
+              { onClick: this.AbrirTodos.bind(this) },
+              ' Ver m\xE1s '
+            )
+          )
         )
+      );
+    }
+  }, {
+    key: 'AbrirTodos',
+    value: function AbrirTodos() {
+      this.refs.ConteneActores.classList.add("ActoresAbierto");
+    }
+  }, {
+    key: 'Cargador',
+    value: function Cargador() {
+      {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { ref: 'CargadorActor', className: 'ContieneCargadorActores' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'CargadorActores' })
+        );
+      }
+    }
+  }, {
+    key: 'CargarActores',
+    value: function CargarActores() {
+      var _this2 = this;
+
+      fetch("http://" + window.location.hostname + ":" + window.location.port + "/api/pelicula/actores/" + this.Pelicula.id).then(function (res) {
+        return res.json();
+      }).then(function (result) {
+        var ListadoComemtarios = [];
+        var resultados = result.cast;
+
+        resultados.forEach(function (coment) {
+
+          var comentarioIn = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Actor_js__["a" /* default */], { key: coment.id, datos: coment });
+          ListadoComemtarios.push(comentarioIn);
+        });
+
+        _this2.setState({
+          actores: ListadoComemtarios
+        });
+        _this2.QuitarCargadorActores();
+      },
+      // Note: it's important to handle errors here
+      // instead of a catch() block so that we don't swallow
+      // exceptions from actual bugs in components.
+      function (error) {
+        _this2.setState({
+          isLoaded: true,
+          error: error
+        });
+      });
+    }
+  }, {
+    key: 'QuitarCargadorActores',
+    value: function QuitarCargadorActores() {
+      var cargador = this.refs.CargadorActor;
+      cargador.classList.add("CargadorActorAbierto");
+    }
+  }, {
+    key: 'PonerActores',
+    value: function PonerActores() {
+      var _state = this.state,
+          error = _state.error,
+          isLoaded = _state.isLoaded,
+          actores = _state.actores;
+
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { ref: 'ConteneActores' },
+        actores.map(function (item) {
+          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            item
+          );
+        })
       );
     }
   }, {
@@ -86318,60 +86412,6 @@ var VerPeli = function (_Component) {
         'div',
         { className: 'BaseGrafico' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'puntuaci\xF3n', style: this.Longitud })
-      );
-    }
-  }, {
-    key: 'DevolverInfoUsuario',
-    value: function DevolverInfoUsuario() //Da la imagen, nombre e info del usuario del comentario
-    {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: 'ContieneInfoUsuarioMini' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          { className: 'ContieneMiniImagen' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', null)
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          { className: 'ContieneMiniNombrePerfil' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'p',
-            null,
-            'Nombre Perfil'
-          )
-        )
-      );
-    }
-  }, {
-    key: 'Comentarios',
-    value: function Comentarios() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: 'ContenedorComentarios' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          { className: 'ContieneComentarios' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { className: 'Comentario' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              { className: 'ContieneInfoUsuario' },
-              this.DevolverInfoUsuario()
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              { className: 'ContieneComentarioTexto' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'p',
-                null,
-                'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-              )
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Editor_js__["a" /* default */], null)
-          )
-        )
       );
     }
   }, {
@@ -86663,6 +86703,94 @@ var Comentarios = function (_Component) {
 
 /***/ }),
 /* 269 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+var Actor = function (_Component) {
+  _inherits(Actor, _Component);
+
+  function Actor(props) {
+    _classCallCheck(this, Actor);
+
+    var _this = _possibleConstructorReturn(this, (Actor.__proto__ || Object.getPrototypeOf(Actor)).call(this, props));
+
+    _this.ImagenNula();
+
+    return _this;
+  }
+
+  _createClass(Actor, [{
+    key: "ImagenNula",
+    value: function ImagenNula() {
+      if (this.props.datos.profile_path == null) {
+        this.props.datos.profile_path = "/Imagenes/Usuarios/1.png";
+      } else {
+        this.props.datos.profile_path = "https://image.tmdb.org/t/p/w92/" + this.props.datos.profile_path;
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        null,
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "Actor" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "ContieneImagenActor" },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: this.props.datos.profile_path })
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "ContieneInfoActor" },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "div",
+              { className: "ContieneNombreReal" },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "p",
+                null,
+                this.props.datos.name
+              )
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "div",
+              { className: "ContieneNombreFict" },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "p",
+                null,
+                "(",
+                this.props.datos.character,
+                ")"
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Actor;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (Actor);
+
+/***/ }),
+/* 270 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

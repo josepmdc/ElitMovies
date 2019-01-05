@@ -5,7 +5,7 @@ use GuzzleHttp\Client;//Necesario para solicitudes
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Factory;
 use \Illuminate\Pagination\Paginator;
-use \App\User;
+
 
 
 class PeliculasController extends Controller
@@ -104,12 +104,11 @@ class PeliculasController extends Controller
         return $datos;
     }
 
-    
+
 
     public function GetActores($Id) //Devuelve los actores que han participado en la película --NO HE PODIDO HACER UN PAGINATE--
     {
         $URLId = "https://api.themoviedb.org/3/movie/".$Id."/credits?api_key=".$this->ApiCodigo;
-        $data = ['id' => 1, 'comment' => 'My comment'];
         
         $datos = $this->DameDatos($URLId,"");
         
