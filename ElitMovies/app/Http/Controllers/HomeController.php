@@ -29,4 +29,10 @@ class HomeController extends Controller
     {
          return view('privacidad');
     }
+    public function usuario()
+    {
+        $user = \Auth::user();
+        echo $user->name;        
+    }
+    
 }

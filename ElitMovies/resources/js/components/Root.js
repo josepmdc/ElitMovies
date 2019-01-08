@@ -4,6 +4,7 @@ import ReactDOM             from 'react-dom';
 import PropTypes            from 'prop-types';
 import BaseModificada       from './BaseModificada'
 import BaseSimple           from './BaseSimple'
+import Prueba               from './Prueba'
 import BasePeli             from './BasePeli'
 
 class Root extends Component {
@@ -21,7 +22,7 @@ class Root extends Component {
             case 'BaseModificada':
                 return <BaseModificada data={this.props.data} />;
             case 'BaseSimple':
-                return <BaseSimple data={this.props.data} />;
+                return <Prueba data={this.props.data}  />;
             break;
             case 'BasePeli':
                 return <BasePeli data={this.props.data} />;

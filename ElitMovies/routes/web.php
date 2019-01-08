@@ -15,7 +15,11 @@
 
 Auth::routes(); //Rutas de login y registro
 
-Route::get('/home',		 	'HomeController@index')->name('home');
+
+
+Route::get('/home',		 		'HomeController@index')->name('home');
+
+Route::get('/usuario',		 	'UsuarioController@index');
 
 
 //Controlador Simple

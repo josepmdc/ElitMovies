@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
+
 /*--------------------------------COMENTARIOS-------------------------*/
 //Comentario por pelicula
 Route::get('/Comentarios',							'ComentariosController@ListadoComentarios'); 
@@ -29,7 +30,7 @@ Route::get('/SubComentarios',						'ComentariosController@ListadoSubComentarios'
 
 
 /*--------------------------------USUARIO-----------------------------*/
-
+Route::get('/usuario',						'UsuarioController@EstaConectado'); //cheack del usuario si esta conectado y devuelve datos
 
 
 /*--------------------------------PELICULAS---------------------------*/
