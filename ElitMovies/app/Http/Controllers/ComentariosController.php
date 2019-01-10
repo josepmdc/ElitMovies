@@ -54,7 +54,7 @@ class ComentariosController extends Controller
         $comentariosArray['data'] = $data;
         
         // Devuelve el array codificado a JSON otra vez
-        return json_encode($comentariosArray);
+        return $comentariosArray;
     }
 
 
@@ -66,8 +66,16 @@ class ComentariosController extends Controller
             ->where('Pelicula_Id',          '=',$comentario['Pelicula_Id'])
             ->where('id_SubComentarioDe',   '=',$comentario['id'])
             ->get();
+
+        // Convertimos el JSON a array para poder añadir los subcomentarios
+        $comentariosArray = json_decode($comentarios->toJson(), true);
+
+        // Por cada comentario busca los subcomentarios y los añade al array
+        foreach ($comentariosArray as &$comentario) {
+            $comentario['subComentarios'] =  $this->ListadoSubComentarios($comentario); // Se llama recursivamente al mismo método para poder añadir los subcomentarios
+        }
         
-        return json_decode($comentarios);
+        return $comentariosArray;
     }
     
 }
