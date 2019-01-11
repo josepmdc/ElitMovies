@@ -6,10 +6,11 @@ import InicioPeliculas from './ComponentsBaseSimple/InicioPeliculas'
 import $ from 'jquery'
 
 //components
-import Header from './Global/Header';
-import Content from './Global/Content';
-import Footer from './Global/Footer';
-
+import Header   from './Global/Header';
+import Content  from './Global/Content';
+import Footer   from './Global/Footer';
+import Menu     from './Menu';
+import { withRouter } from 'react-router-dom'
 
 
 
@@ -23,7 +24,7 @@ class BaseSimple extends Component {
     {
         super(props);
         //Hasta aqui los datos pasados eran en string, los pasamos a array a variable datos
-        this.datos = JSON.parse(this.props.data);
+        
         //alert(this.datos['Peliculas']['results']);
     
      }
@@ -38,8 +39,8 @@ class BaseSimple extends Component {
             <div >
            
             
-
-            <InicioPeliculas datos={this.datos}/>
+            <Menu />
+            <InicioPeliculas/>
 
             </div>
         );

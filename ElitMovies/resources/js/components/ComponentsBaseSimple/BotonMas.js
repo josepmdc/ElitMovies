@@ -31,7 +31,7 @@ export default class BotonMas extends Component {
 
     UrlsFondos()
     {
-        this.fondo = "https://fotografias.antena3.com/clipping/cmsimages02/2015/10/27/6A638DA2-F014-4FCE-BC05-7FB0BDBFABE1/58.jpg";
+        this.fondo = "/images/vacio.jpg";
     }
    
 

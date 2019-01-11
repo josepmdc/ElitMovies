@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import BaseSimple           from './BaseSimple';
 
 
-class Prueba extends Component {
+class Menu extends Component {
 
   constructor(props) {
         super(props);
@@ -31,9 +31,9 @@ class Prueba extends Component {
               </ul>
             </nav>
 
-            <Route path="/users"             component={() => <h2>Home</h2>} />
+            <Route path="/users"             component={() => <h2>users</h2>} />
             <Route path="/about/"            component={() => <h2>about</h2>} />
-            <Route path="/"            exact component={() => <BaseSimple data={this.props.data} />} />
+            <Route path="/"                  component={() => <h2>Home</h2>} />
           </div>
         </Router>
 
@@ -42,4 +42,4 @@ class Prueba extends Component {
   
 }
 
-export default Prueba;
+export default Menu;

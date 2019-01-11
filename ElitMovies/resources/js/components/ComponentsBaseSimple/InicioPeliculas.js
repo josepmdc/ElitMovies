@@ -62,27 +62,7 @@ export default class InicioPeliculas extends Component {
   
     }
     
-    CargarDatosRecibidos() //Cargamos los datos recibidos a las listas
 
-    {
-          const results = this.props.datos.Populares.results
-  
-          results.forEach(movie => {
-
-            const movieRow = <MovieRow key = { movie.id } movie = { movie } />
-            this.ListaPopulares.push(movieRow)
-   
-          });
-          const results2 = this.props.datos.Valoradas.results
-  
-          results2.forEach(movie => {
-
-            const movieRow = <MovieRow key = { movie.id } movie = { movie } />
-            this.ListaValoradas.push(movieRow)
-   
-          });
- 
-    }
     PonerSaberMas() //Añadimos al final de cada lista una opción de 'Ver más' para ir al apartado
     {
         const OpcionMas = <BotonMas key = 'Valoradas' dir = 'Valoradas' />

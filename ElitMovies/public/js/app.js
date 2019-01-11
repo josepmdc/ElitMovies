@@ -21070,50 +21070,21 @@ var MovieRow = function (_Component) {
             this.props.movie.backdrop_path = "https://image.tmdb.org/t/p/w1400_and_h450_face/" + this.props.movie.backdrop_path;
         }
     }, {
-        key: 'viewMovie',
-        value: function viewMovie() {
-            var url = "https://www.themoviedb.org/movie/" + this.props.movie.id;
-            window.location.href = url;
-        }
-    }, {
-        key: 'viewTrailer',
-        value: function viewTrailer() {
-            var url = "https://www.youtube.com/watch?v=" + "oAALE9m47dc";
-            window.location.href = url;
-        }
-    }, {
-        key: 'Centrar',
-        value: function Centrar(a) //Centra el div a la pantalla
-        {
-            var w = window.innerWidth / 2;
-            var h = window.innerHeight / 2;
-            var x = a.offsetLeft;
-            var y = a.offsetTop;
-            var mw = w - x;
-            var my = h - y;
-
-            a.style.transform = 'translateX(-50%) translateX(' + mw + 'px)  translateY(-50%) ';
-        }
-    }, {
-        key: 'AbrirContenidos',
-        value: function AbrirContenidos(a) {
-            var Falso = this.refs.RefFF;
-        }
-    }, {
         key: 'Abrir',
         value: function Abrir(e) {
-
+            var Options = this.refs.Options;
             var sino = this.refs.Sino;
             var Falso = this.refs.RefFF;
             var Tit = this.refs.RefTit;
             sino.classList.add('Visible');
             Falso.classList.add('Largo');
             Tit.classList.add('FondoTrans');
+            Options.classList.add('Ver');
         }
     }, {
         key: 'Cerrar',
         value: function Cerrar(e) {
-
+            var Options = this.refs.Options;
             var sino = this.refs.Sino;
             var Falso = this.refs.RefFF;
             var Tit = this.refs.RefTit;
@@ -21121,6 +21092,7 @@ var MovieRow = function (_Component) {
             sino.classList.remove('Visible');
             Falso.classList.remove('Largo');
             Tit.classList.remove('FondoTrans');
+            Options.classList.remove('Ver');
         }
     }, {
         key: 'render',
@@ -21168,7 +21140,7 @@ var MovieRow = function (_Component) {
                                 '...',
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
-                                    { className: 'ContieneOpcionesPelicula' },
+                                    { className: 'ContieneOpcionesPelicula', ref: 'Options' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'OpcionPelicula' },
@@ -28279,6 +28251,7 @@ var generatePath = function generatePath() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Global_Header__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Global_Content__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Global_Footer__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Menu__ = __webpack_require__(103);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28299,19 +28272,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var BaseSimple = function (_Component) {
     _inherits(BaseSimple, _Component);
 
     function BaseSimple(props) {
         _classCallCheck(this, BaseSimple);
 
+        return _possibleConstructorReturn(this, (BaseSimple.__proto__ || Object.getPrototypeOf(BaseSimple)).call(this, props));
         //Hasta aqui los datos pasados eran en string, los pasamos a array a variable datos
-        var _this = _possibleConstructorReturn(this, (BaseSimple.__proto__ || Object.getPrototypeOf(BaseSimple)).call(this, props));
 
-        _this.datos = JSON.parse(_this.props.data);
         //alert(this.datos['Peliculas']['results']);
-
-        return _this;
     }
 
     /* static propTypes = {
@@ -28324,7 +28295,8 @@ var BaseSimple = function (_Component) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__ComponentsBaseSimple_InicioPeliculas__["a" /* default */], { datos: this.datos })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__Menu__["a" /* default */], null),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__ComponentsBaseSimple_InicioPeliculas__["a" /* default */], null)
             );
         }
     }]);
@@ -28409,28 +28381,6 @@ var InicioPeliculas = function (_Component) {
           isLoaded: true,
           error: error
         });
-      });
-    }
-  }, {
-    key: 'CargarDatosRecibidos',
-    value: function CargarDatosRecibidos() //Cargamos los datos recibidos a las listas
-
-    {
-      var _this3 = this;
-
-      var results = this.props.datos.Populares.results;
-
-      results.forEach(function (movie) {
-
-        var movieRow = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__MovieRow__["a" /* default */], { key: movie.id, movie: movie });
-        _this3.ListaPopulares.push(movieRow);
-      });
-      var results2 = this.props.datos.Valoradas.results;
-
-      results2.forEach(function (movie) {
-
-        var movieRow = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__MovieRow__["a" /* default */], { key: movie.id, movie: movie });
-        _this3.ListaValoradas.push(movieRow);
       });
     }
   }, {
@@ -28535,21 +28485,19 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var Prueba = function (_Component) {
-  _inherits(Prueba, _Component);
+var Menu = function (_Component) {
+  _inherits(Menu, _Component);
 
-  function Prueba(props) {
-    _classCallCheck(this, Prueba);
+  function Menu(props) {
+    _classCallCheck(this, Menu);
 
-    return _possibleConstructorReturn(this, (Prueba.__proto__ || Object.getPrototypeOf(Prueba)).call(this, props));
+    return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
     //Hasta aqui los datos pasados eran en string, los pasamos a array a variable datos
   }
 
-  _createClass(Prueba, [{
+  _createClass(Menu, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["a" /* BrowserRouter */],
         null,
@@ -28595,7 +28543,7 @@ var Prueba = function (_Component) {
               return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'h2',
                 null,
-                'Home'
+                'users'
               );
             } }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/about/', component: function component() {
@@ -28605,18 +28553,22 @@ var Prueba = function (_Component) {
                 'about'
               );
             } }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/', exact: true, component: function component() {
-              return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__BaseSimple__["a" /* default */], { data: _this2.props.data });
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/', strict: true, exact: true, component: function component() {
+              return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'h2',
+                null,
+                'Home'
+              );
             } })
         )
       );
     }
   }]);
 
-  return Prueba;
+  return Menu;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Prueba);
+/* harmony default export */ __webpack_exports__["a"] = (Menu);
 
 /***/ }),
 /* 104 */
@@ -50973,7 +50925,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__BaseModificada__ = __webpack_require__(232);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__BaseSimple__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Prueba__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Menu__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__BasePeli__ = __webpack_require__(267);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -51013,7 +50965,7 @@ var Root = function (_Component) {
                 case 'BaseModificada':
                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__BaseModificada__["a" /* default */], { data: this.props.data });
                 case 'BaseSimple':
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__Prueba__["a" /* default */], { data: this.props.data });
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__BaseSimple__["a" /* default */], null);
                     break;
                 case 'BasePeli':
                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__BasePeli__["a" /* default */], { data: this.props.data });
@@ -86217,7 +86169,7 @@ var BotonMas = function (_Component) {
     }, {
         key: 'UrlsFondos',
         value: function UrlsFondos() {
-            this.fondo = "https://fotografias.antena3.com/clipping/cmsimages02/2015/10/27/6A638DA2-F014-4FCE-BC05-7FB0BDBFABE1/58.jpg";
+            this.fondo = "/images/vacio.jpg";
         }
     }, {
         key: 'Abrir',
@@ -86320,7 +86272,6 @@ var BotonMas = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Global_Header__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Global_Content__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Global_Footer__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Prueba__ = __webpack_require__(103);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -86338,7 +86289,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 //components
-
 
 
 

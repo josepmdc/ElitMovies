@@ -10,7 +10,7 @@ import $ from 'jquery'
 import Header from './Global/Header';
 import Content from './Global/Content';
 import Footer from './Global/Footer';
-import Prueba               from './Prueba'
+
 
 
 

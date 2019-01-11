@@ -42,48 +42,19 @@ export default class MovieRow extends Component {
 
     }
     
-    viewMovie() {
-        const url = "https://www.themoviedb.org/movie/" + this.props.movie.id
-        window.location.href = url
-    }
 
-    viewTrailer() {
-        const url = "https://www.youtube.com/watch?v=" + "oAALE9m47dc"
-        window.location.href = url
-    }
-
-
-    Centrar(a) //Centra el div a la pantalla
-    {
-        var w   = (window.innerWidth)/2;
-        var h   = (window.innerHeight)/2;
-        var x   = a.offsetLeft;
-        var y   = a.offsetTop;
-        var mw  = w-x;
-        var my  = h-y;
-
-
-
-
-        a.style.transform= 'translateX(-50%) translateX('+mw+'px)  translateY(-50%) ';
-       
-
-    }
-    AbrirContenidos(a)
-    {
-        var Falso = this.refs.RefFF;
-        
-    }
+   
     
     Abrir(e)
     {
-       
+       var Options     = this.refs.Options;
        var sino     = this.refs.Sino;
        var Falso    = this.refs.RefFF;
        var Tit      = this.refs.RefTit;
        sino.classList.add('Visible');
        Falso.classList.add('Largo');
        Tit.classList.add('FondoTrans');
+       Options.classList.add('Ver');
       
        
 
@@ -91,7 +62,7 @@ export default class MovieRow extends Component {
 
     Cerrar(e)
     {
-       
+       var Options     = this.refs.Options;
        var sino     = this.refs.Sino;
        var Falso    = this.refs.RefFF;
        var Tit      = this.refs.RefTit;
@@ -99,6 +70,7 @@ export default class MovieRow extends Component {
        sino.classList.remove('Visible');
        Falso.classList.remove('Largo');
        Tit.classList.remove('FondoTrans');
+       Options.classList.remove('Ver');
         
 
        
@@ -133,7 +105,7 @@ export default class MovieRow extends Component {
                                 <p>{ this.props.movie.overview }</p> 
                             </div>
                             ...
-                            <div className="ContieneOpcionesPelicula">
+                            <div className="ContieneOpcionesPelicula" ref="Options">
                                 <div className="OpcionPelicula">
                                     <p>Ver Película</p>
                                 </div>
