@@ -32,7 +32,7 @@ class Prueba extends Component {
             </nav>
 
             <Route path="/users"             component={() => <h2>Home</h2>} />
-            <Route path="/about/"             component={() => <h2>about</h2>} />
+            <Route path="/about/"            component={() => <h2>about</h2>} />
             <Route path="/"            exact component={() => <BaseSimple data={this.props.data} />} />
           </div>
         </Router>

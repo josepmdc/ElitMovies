@@ -29,8 +29,8 @@ class DiseñoSimpleController extends Controller
         array(
             'Titulo'    => "Inicio",                        //Titulo de la página
             'Usuario'   => "User",                          //usuario
-            'Populares' => $this->Peliculas->Populares(),   //Peliculas
-            'Valoradas' => $this->Peliculas->Valoradas(),
+            //'Populares' => $this->Peliculas->Populares(),   //Peliculas
+            //'Valoradas' => $this->Peliculas->Valoradas(),
             'Estilo'    => "Netflix",                       //Estilo
             'React'     => "BaseSimple",                    //base de React
         );

@@ -21140,11 +21140,6 @@ var MovieRow = function (_Component) {
                             { className: 'FalsoFondo', ref: 'RefFF' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
-                                { className: 'ContienePuntuaciones' },
-                                this.props.movie.vote_average
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'div',
                                 { className: 'ContienePoster' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.props.movie.poster_path })
                             ),
@@ -21168,6 +21163,43 @@ var MovieRow = function (_Component) {
                                         'p',
                                         null,
                                         this.props.movie.overview
+                                    )
+                                ),
+                                '...',
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'ContieneOpcionesPelicula' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'OpcionPelicula' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'p',
+                                            null,
+                                            'Ver Pel\xEDcula'
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'OpcionPelicula' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'p',
+                                            null,
+                                            'Ver Trailer'
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'OpcionPelicula' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'p',
+                                            null,
+                                            this.props.movie.vote_average
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'p',
+                                            null,
+                                            'Comentar'
+                                        )
                                     )
                                 )
                             )
@@ -28334,32 +28366,71 @@ var InicioPeliculas = function (_Component) {
     _this.state = {};
     _this.ListaPopulares = [];
     _this.ListaValoradas = [];
-    _this.CargarDatosRecibidos();
-    _this.PonerSaberMas();
+    _this.PrepararDatos();
+    //this.CargarDatosRecibidos()
+    //this.PonerSaberMas()
 
     return _this;
   }
 
   _createClass(InicioPeliculas, [{
+    key: 'PrepararDatos',
+    value: function PrepararDatos() //Cargamos las opiniones por el Id de la pelicula
+    {
+      var _this2 = this;
+
+      fetch("http://" + window.location.hostname + ":" + window.location.port + "/api/populares").then(function (res) {
+        return res.json();
+      }).then(function (result) {
+
+        var movies = [];
+        var resultados = result.results;
+
+        resultados.forEach(function (coment) {
+
+          var movieRow = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__MovieRow__["a" /* default */], { key: coment.id, movie: coment });
+          movies.push(movieRow);
+        });
+        /*
+        this.setState({
+          items: ListadoComemtarios
+        });
+        */
+        var OpcionMas = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__BotonMas__["a" /* default */], { key: 'Valoradas', dir: 'Valoradas' });
+        movies.push(OpcionMas);
+        _this2.setState({ rows: movies });
+        _this2.QuitarCargadorPeliculas();
+      },
+      // Note: it's important to handle errors here
+      // instead of a catch() block so that we don't swallow
+      // exceptions from actual bugs in components.
+      function (error) {
+        _this2.setState({
+          isLoaded: true,
+          error: error
+        });
+      });
+    }
+  }, {
     key: 'CargarDatosRecibidos',
     value: function CargarDatosRecibidos() //Cargamos los datos recibidos a las listas
 
     {
-      var _this2 = this;
+      var _this3 = this;
 
       var results = this.props.datos.Populares.results;
 
       results.forEach(function (movie) {
 
         var movieRow = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__MovieRow__["a" /* default */], { key: movie.id, movie: movie });
-        _this2.ListaPopulares.push(movieRow);
+        _this3.ListaPopulares.push(movieRow);
       });
       var results2 = this.props.datos.Valoradas.results;
 
       results2.forEach(function (movie) {
 
         var movieRow = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__MovieRow__["a" /* default */], { key: movie.id, movie: movie });
-        _this2.ListaValoradas.push(movieRow);
+        _this3.ListaValoradas.push(movieRow);
       });
     }
   }, {
@@ -28367,8 +28438,37 @@ var InicioPeliculas = function (_Component) {
     value: function PonerSaberMas() //Añadimos al final de cada lista una opción de 'Ver más' para ir al apartado
     {
       var OpcionMas = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__BotonMas__["a" /* default */], { key: 'Valoradas', dir: 'Valoradas' });
-      this.ListaValoradas.push(OpcionMas);
-      this.ListaPopulares.push(OpcionMas);
+      var Listado = this.state.rows;
+      Listado.push(OpcionMas);
+      /*this.setState({ rows: Listado })*/
+    }
+  }, {
+    key: 'CargadorPeliculas',
+    value: function CargadorPeliculas() {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'ContienePeliculasFantasma', ref: 'CargadorPel' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null)
+      );
+    }
+  }, {
+    key: 'QuitarCargadorPeliculas',
+    value: function QuitarCargadorPeliculas() {
+      var pelis = this.refs.CargadorPel;
+      pelis.classList.add('Quitar');
     }
   }, {
     key: 'render',
@@ -28385,10 +28485,11 @@ var InicioPeliculas = function (_Component) {
             'Estrenos Populares'
           )
         ),
+        this.CargadorPeliculas(),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'ContienePeliculas' },
-          this.ListaPopulares
+          this.state.rows
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',

@@ -20,7 +20,7 @@ class Pagina1Controller extends Controller
     function __construct()
     {
         //Inicializamos un objeto de Peliculas Controller, ya que se utilizarán en muchas funciones de diseño
-        $this->Peliculas = new PeliculasController();
+        //$this->Peliculas = new PeliculasController();
     }
     public function index()
     {

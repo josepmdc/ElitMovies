@@ -13,15 +13,17 @@ body {
 }
 
 .ContienePeliculas {
+	
+
 	width: 95%;
     margin: auto;
-        display: flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-     display: grid; /* 1 */
-  grid-template-columns: repeat(auto-fill, 314px); /* 2 */
-  grid-gap: 1rem; /* 3 */
-  justify-content: space-between; /* 4 */
+    display: grid; /* 1 */
+	  grid-template-columns: repeat(auto-fill, 314px); /* 2 */
+	  grid-gap: 1rem; /* 3 */
+	  animation: 5 ;
     transition: all 0.6s ease;
 }
 
@@ -557,3 +559,91 @@ button {
 .VerMasActores >button {
 	margin: auto;
 }
+
+.ContienePeliculasFantasma {
+	    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 314px);
+    grid-gap: 1rem;
+    animation: 5;
+    transition: all 0.6s ease;
+}
+.ContienePeliculasFantasma >div {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #031c25 8%, #092731 18%, #031c25 33%);
+    background-size: 800px 104px;
+    height: 169px;
+    width: 259px;
+    position: relative;
+    border-radius: 21px;
+    margin: auto;
+    margin-top: 30px;
+    opacity: 1;
+
+
+}
+
+.ContienePeliculasFantasma>div::after {
+	width: 137px;
+    height: 20px;
+    margin-top: 110px;
+    margin-left: 32px;
+    background: #04222d;
+    content: "";
+    display: inline-block;
+    /* position: absolute; */
+}
+
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+
+.Quitar {
+	display: none;
+}
+
+
+.ContieneOpcionesPelicula
+{
+	width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.ContieneOpcionesPelicula {
+
+} 
+.OpcionPelicula {
+	font-size: 10px;
+	text-align: center;
+	margin: 8px;
+	color: #bdbdbd;
+}
+.OpcionPelicula p {
+	margin: auto;
+}
+
+
+
+
+
+
+
+
+
+

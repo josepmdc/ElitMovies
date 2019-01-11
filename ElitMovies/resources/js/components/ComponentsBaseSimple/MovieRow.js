@@ -121,9 +121,7 @@ export default class MovieRow extends Component {
             <div className = "ContienePelicula" style = {this.EstiloFondo} onMouseLeave={this.Cerrar.bind(this)} onMouseOver={this.Abrir.bind(this)} onLoad={this.Cerrar.bind(this)} ref="RefPeli"  >
                 <div className = "Pelicula" >
                     <div className = "FalsoFondo" ref="RefFF">
-                         <div className="ContienePuntuaciones">
-                            {this.props.movie.vote_average}
-                        </div>
+                         
                         <div className="ContienePoster">
                             <img src={this.props.movie.poster_path}/>
                         </div>
@@ -132,7 +130,21 @@ export default class MovieRow extends Component {
                                 <p> { this.props.movie.title }</p>
                             </div>
                             <div className="ContieneSinopsis" ref="Sino">
-                                <p>{ this.props.movie.overview }</p>
+                                <p>{ this.props.movie.overview }</p> 
+                            </div>
+                            ...
+                            <div className="ContieneOpcionesPelicula">
+                                <div className="OpcionPelicula">
+                                    <p>Ver Película</p>
+                                </div>
+                                <div className="OpcionPelicula">
+                                    <p>Ver Trailer</p>
+                                </div>
+                                <div className="OpcionPelicula">
+                                    <p>{this.props.movie.vote_average}</p>
+                                    <p>Comentar</p>
+                                </div>
+                                
                             </div>
                             
                         </div>
