@@ -40,7 +40,7 @@ Route::get('/populares',			'PeliculasController@Populares');		//Nos devuelve pop
 Route::get('/populares/{pagina}',	'PeliculasController@PopularesPagina');	//Especificamos numero pagina populares
 Route::get('/valoradas',			'PeliculasController@Valoradas');		//Mejor valoradas
 Route::get('/valoradas/{pagina}',	'PeliculasController@ValoradasPagina');	//Especificamos numero pagina valoradas
-
+Route::get('/idioma',				'PeliculasController@DameIdioma');	
 
 
 

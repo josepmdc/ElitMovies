@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import BaseSimple           from './BaseSimple';
+import Login           from './Usuario/Login';
 
 
 class Menu extends Component {
@@ -29,11 +30,15 @@ class Menu extends Component {
                 <li>
                   <Link to="/perfil/">Users</Link>
                 </li>
+                <li>
+                  <a href="/login">Login</a>
+                </li>
               </ul>
             </nav>
 
-            <Route path="/perfil"             component={() => <h2>users</h2>} />
+            <Route path="/perfil"            component={() => <h2>users</h2>} />
             <Route path="/about/"            component={() => <h2>about</h2>} />
+            <Route path="/login/"            component={() => <Login />} />
             <Route path="/"         exact    component={() => <BaseSimple />} />
             
           </div>

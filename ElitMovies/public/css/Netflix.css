@@ -646,6 +646,10 @@ button {
 .OpcionPelicula p {
 	margin: auto;
 }
+.form-horizontal {
+	background: #081c24;
+	margin: auto;
+}
 
 
 
