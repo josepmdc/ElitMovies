@@ -24,6 +24,7 @@ Route::get('/usuario',		 	'UsuarioController@index');
 
 //Controlador Simple
 Route::get('/',				'DiseñoSimpleController@index');
+Route::get('/perfil',				'DiseñoSimpleController@index');
 Route::get('/pelicula/{id}','DiseñoSimpleController@PeliculaId');//Buscar peli por id
 Route::get('/pelicula/{$Nombre}','DiseñoSimpleController@index');//Buscar peli por Nombre
 

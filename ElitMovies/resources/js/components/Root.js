@@ -23,7 +23,7 @@ class Root extends Component {
             case 'BaseModificada':
                 return <BaseModificada data={this.props.data} />;
             case 'BaseSimple':
-                return <BaseSimple />;
+                return <Menu />;
             break;
             case 'BasePeli':
                 return <BasePeli data={this.props.data} />;

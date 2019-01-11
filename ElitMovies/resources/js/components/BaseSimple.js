@@ -10,7 +10,7 @@ import Header   from './Global/Header';
 import Content  from './Global/Content';
 import Footer   from './Global/Footer';
 import Menu     from './Menu';
-import { withRouter } from 'react-router-dom'
+
 
 
 
@@ -39,7 +39,7 @@ class BaseSimple extends Component {
             <div >
            
             
-            <Menu />
+           
             <InicioPeliculas/>
 
             </div>

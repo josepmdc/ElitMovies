@@ -9,6 +9,7 @@ class Menu extends Component {
   constructor(props) {
         super(props);
         //Hasta aqui los datos pasados eran en string, los pasamos a array a variable datos
+        //<Route path="/"             component={() => <BaseSimple />} />
         
     }
 
@@ -26,14 +27,15 @@ class Menu extends Component {
                   <Link to="/about/">About</Link>
                 </li>
                 <li>
-                  <Link to="/users/">Users</Link>
+                  <Link to="/perfil/">Users</Link>
                 </li>
               </ul>
             </nav>
 
-            <Route path="/users"             component={() => <h2>users</h2>} />
+            <Route path="/perfil"             component={() => <h2>users</h2>} />
             <Route path="/about/"            component={() => <h2>about</h2>} />
-            <Route path="/"                  component={() => <h2>Home</h2>} />
+            <Route path="/"         exact    component={() => <BaseSimple />} />
+            
           </div>
         </Router>
 

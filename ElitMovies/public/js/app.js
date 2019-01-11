@@ -28295,7 +28295,6 @@ var BaseSimple = function (_Component) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__Menu__["a" /* default */], null),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__ComponentsBaseSimple_InicioPeliculas__["a" /* default */], null)
             );
         }
@@ -28493,6 +28492,7 @@ var Menu = function (_Component) {
 
     return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
     //Hasta aqui los datos pasados eran en string, los pasamos a array a variable datos
+    //<Route path="/"             component={() => <BaseSimple />} />
   }
 
   _createClass(Menu, [{
@@ -28533,13 +28533,13 @@ var Menu = function (_Component) {
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-                  { to: '/users/' },
+                  { to: '/perfil/' },
                   'Users'
                 )
               )
             )
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/users', component: function component() {
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/perfil', component: function component() {
               return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'h2',
                 null,
@@ -28553,12 +28553,8 @@ var Menu = function (_Component) {
                 'about'
               );
             } }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/', strict: true, exact: true, component: function component() {
-              return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h2',
-                null,
-                'Home'
-              );
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/', exact: true, component: function component() {
+              return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__BaseSimple__["a" /* default */], null);
             } })
         )
       );
@@ -50965,7 +50961,7 @@ var Root = function (_Component) {
                 case 'BaseModificada':
                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__BaseModificada__["a" /* default */], { data: this.props.data });
                 case 'BaseSimple':
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__BaseSimple__["a" /* default */], null);
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__Menu__["a" /* default */], null);
                     break;
                 case 'BasePeli':
                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__BasePeli__["a" /* default */], { data: this.props.data });
