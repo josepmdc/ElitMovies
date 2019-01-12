@@ -10,7 +10,7 @@ import $ from 'jquery'
 import Header from './Global/Header';
 import Content from './Global/Content';
 import Footer from './Global/Footer';
-
+import Menu               from './Menu'
 
 
 
@@ -38,7 +38,7 @@ class BaseSimple extends Component {
         return (
             <div >
            
-            <Header title="Título de la web" items = 'holaaala' />
+            <Menu />
 
             <VerPeli datos={this.datos}/>
 

@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Cinzel');
 
-p {
+p,a {
 	font-family: 'Montserrat', sans-serif;
+	text-decoration: none !important;
+
 }
 
 /********	-- Para Vista de Inicio	--	********/
@@ -527,7 +529,7 @@ button {
    
     border: 15px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 15px solid #3498db;
+    border-top: 15px solid #081c24;
     width: 50px;
     height: 50px;
     -webkit-animation: spin 2s linear infinite;
@@ -591,6 +593,9 @@ button {
 
 
 }
+.Pelicula {
+	/*cursor: default;*/
+}
 
 .ContienePeliculasFantasma>div::after {
 	width: 137px;
@@ -645,11 +650,169 @@ button {
 }
 .OpcionPelicula p {
 	margin: auto;
+	/*color: #57b3ff;*/
 }
-.form-horizontal {
+
+.contieneLogin {
+	
+	padding: 20px;
+	border-radius: 10px;
 	background: #081c24;
+}
+.col-md-8, .col-md-offset-2
+{
 	margin: auto;
 }
+label {
+	color: white;
+}
+.header>ul {
+	margin: auto;
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+	width: 40%;
+	margin-left: 5%;
+	min-width: 400px;
+	max-width: 500px;
+	margin-right: 0px;
+}
+.header {
+	display: flex;
+	justify-content: space-around;
+	z-index: 9999;
+}
+
+
+.header  a {
+	color: white;
+	font-size: 13px;
+}
+.logo {
+	height: 46px;
+	position: absolute;
+	top: 0;
+	margin-top: 5px;
+}
+.MiniImagenProfile >img {
+	width: 100%;
+	height: auto;
+}
+.MiniImagenProfile {
+	width: 42px;
+	height: 42px;
+	overflow: hidden;
+	border-radius: 50%;
+}
+.ContienePanelUsuario {
+	display: flex;
+	justify-content: space-around;
+	
+	padding: 7px;
+	margin-right: 20px;
+}
+.ContieneNombreUsuario
+{
+	text-align: right;
+	font-size: 13px;
+	margin-right: 13px;
+	margin-top: 14px;
+
+}
+.ContieneNombreUsuario p {
+	margin: auto;
+	color: white;
+}
+
+.ContieneAbrirCerrar >span
+{
+	color:#cccccc;
+	margin: 10px;
+    margin-top: 12px;
+}
+
+.ContieneOpcionesUsuario{
+	z-index: 800;
+	background: #081c24;
+    padding: 23px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 54px;
+    border-radius: 0px 0px 20px 20px;
+    transition: all 0.4s ease;
+    transform: translateY(-343px);
+    opacity: 0;
+}
+.ContieneOpcionesUsuario>div {
+	width: 100%;
+	padding: 13px;
+}
+.Inexistente {
+	display: none;
+}
+.ConInicio {
+	display: none;
+}
+.flexa {
+	transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+.FlexaGirada{
+	transform: rotateZ(180deg);
+}
+.PanelAbierto {
+	transform: translateY(0px);
+	opacity: 1;
+}
+
+
+
+.ContieneBuscador {
+	background: #ffffff0d;
+    padding: 6px;
+    border-radius: 8px;
+    display: flex;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+.ContieneBuscador input{
+	background: none;
+    border: none;
+    outline: none;
+    margin-left: 9px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: white;
+    width: 90px;
+}
+
+.ContieneBuscador span {
+	margin-top: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,10 +1,11 @@
 
-import React, { Component } from 'react';
+import React, { Component }                     from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import BaseSimple           from './BaseSimple';
-import Login           from './Usuario/Login';
-
-
+import BaseSimple                               from './BaseSimple';
+import PanelUser                                from './Usuario/PanelUser';
+import Buscador                                 from './ComponentsBaseSimple/Buscador';
+import Search                                   from './Global/Search';
+ 
 class Menu extends Component {
 
   constructor(props) {
@@ -22,23 +23,28 @@ class Menu extends Component {
             <nav className = "header">
               <ul>
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/"><img src="/images/logo.png"  className="logo" /></Link>
                 </li>
                 <li>
-                  <Link to="/about/">About</Link>
+                  <Link to="/about/">Series</Link>
                 </li>
                 <li>
-                  <Link to="/perfil/">Users</Link>
+                  <Link to="/perfil/">Peliculas</Link>
                 </li>
                 <li>
-                  <a href="/login">Login</a>
+                  <a href="/login">Descubrir</a>
                 </li>
+                
+                  
+                
               </ul>
+              
+              <Search/>
+              <PanelUser/>
             </nav>
 
             <Route path="/perfil"            component={() => <h2>users</h2>} />
             <Route path="/about/"            component={() => <h2>about</h2>} />
-            <Route path="/login/"            component={() => <Login />} />
             <Route path="/"         exact    component={() => <BaseSimple />} />
             
           </div>

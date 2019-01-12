@@ -51,5 +51,10 @@ class UsuarioController extends Controller
             return true; 
         }       
     }
-    
+    public function logout () {
+    //logout user
+    auth()->logout();
+    // redirect to homepage
+    return redirect('/');
+    }
 }

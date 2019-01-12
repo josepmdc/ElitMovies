@@ -20,6 +20,7 @@ Auth::routes(); //Rutas de login y registro
 Route::get('/home',		 		'HomeController@index')->name('home');
 
 Route::get('/usuario',		 	'UsuarioController@index');
+Route::get('/logout',		 	'UsuarioController@logout');
 
 
 //Controlador Simple
@@ -29,7 +30,6 @@ Route::get('/perfil',			'DiseñoSimpleController@index');
 
 Route::get('/pelicula/{id}',	'DiseñoSimpleController@PeliculaId');//Buscar peli por id
 Route::get('/pelicula/{$Nombre}','DiseñoSimpleController@index');//Buscar peli por Nombre
-//Login
 
 
 
