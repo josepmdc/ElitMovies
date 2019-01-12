@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import BaseSimple                               from './BaseSimple';
 import PanelUser                                from './Usuario/PanelUser';
 import Buscador                                 from './ComponentsBaseSimple/Buscador';
-import Search                                   from './Global/Search';
+
  
 class Menu extends Component {
 
@@ -39,7 +39,7 @@ class Menu extends Component {
                 
               </ul>
               
-              <Search/>
+              <Buscador/>
               <PanelUser/>
             </nav>
 

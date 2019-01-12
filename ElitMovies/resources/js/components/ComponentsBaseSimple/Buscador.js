@@ -15,20 +15,69 @@ export default class Buscador extends Component {
 
     }
 
-    ImagenNula()
-    {
-      if(this.props.datos.profile_path == null)
-      {
-        this.props.datos.profile_path = "/Imagenes/Usuarios/1.png"
-      } else {
-          this.props.datos.profile_path = "https://image.tmdb.org/t/p/w92/"+this.props.datos.profile_path
-      }
-    }
 
-    AbrirBuscador()
+
+    AbrirBuscador() 
     {
 
+      //CENTRAMOS EL BUSCADOR
+      var element = this.refs.ContBuscador;
+
+      var w = (window.innerWidth);//anchura
+      var h = (window.innerHeight);//altura
+
+      var y = element.offsetTop;//x
+      var x = element.offsetLeft;//y
+
+      var anchura = element.offsetWidth;
+
+      var medioReal = x+(anchura/2);
+      this.Oscurecer();
+
+      var Posx = (w-(w/2)-(anchura/2))-x;
+      var PosY = (h-(0.85*h))
+      this.refs.input.style.width="100%";
+      element.style.transform = "translateX("+Posx+"px) translateY("+PosY+"px) scale(1.5)";
+
+
     }
+    //Div que oscureze el fondo
+    Oscurecer()
+    {
+      var fondo = this.refs.Oscuridad;
+      fondo.classList.add('Amplio');
+      setTimeout(
+        function()
+        {
+
+          fondo.classList.add('Opaco');
+        }
+
+        , 100);
+      
+    }
+
+    //Cerramos el oscurezido del fondo y el buscador
+    CerrarBuscador()
+    {
+      var element = this.refs.ContBuscador;
+      element.style.transform = "";
+      var fondo = this.refs.Oscuridad;
+      fondo.classList.remove('Opaco');
+
+      setTimeout(
+        function()
+        {
+
+          fondo.classList.remove('Amplio');
+        }
+
+        , 800);
+     
+
+    }
+
+
 
 
    
@@ -40,15 +89,12 @@ export default class Buscador extends Component {
         return (
 
             <div>
+                <div className="Oscuridad" ref="Oscuridad" onClick={this.CerrarBuscador.bind(this)} ></div>
                 <div ref ="ContBuscador" className="ContieneBuscador" onClick={this.AbrirBuscador.bind(this)}>
-                  <span class="glyphicon glyphicon-search"></span>
-                  <input id="searchBar" placeholder="Buscar"  autoComplete="off" type="text"></input>
+                  <span className="glyphicon glyphicon-search"></span>
+                  <input id="searchBar" ref = "input" placeholder="Buscar"  autoComplete="off" type="text"></input>
                 </div>
             </div>
-
-
-
-
 
 
 
