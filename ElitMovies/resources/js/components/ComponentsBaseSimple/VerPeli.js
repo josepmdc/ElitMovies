@@ -146,7 +146,7 @@ export default class VerPeli extends Component {
     }
     CargarActores()
     {
-        fetch("http://"+window.location.hostname+":"+window.location.port+"/api/pelicula/actores/"+this.Pelicula.id)
+        fetch(location.protocol+"//"+window.location.hostname+":"+window.location.port+"/api/pelicula/actores/"+this.Pelicula.id)
         .then(res => res.json())
         .then(
 

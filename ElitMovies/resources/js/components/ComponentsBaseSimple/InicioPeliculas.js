@@ -19,7 +19,7 @@ export default class InicioPeliculas extends Component {
 
     PrepararDatos() //Cargamos las opiniones por el Id de la pelicula
     {
-      fetch("http://"+window.location.hostname+":"+window.location.port+"/api/populares")
+      fetch(location.protocol+"//"+window.location.hostname+":"+window.location.port+"/api/populares")
       .then(res => res.json())
       .then(
 

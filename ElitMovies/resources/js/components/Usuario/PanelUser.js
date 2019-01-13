@@ -38,7 +38,7 @@ export default class PanelUser extends Component {
 
     EstaConectado()
     {
-      fetch("http://"+window.location.hostname+":"+window.location.port+"/usuario")
+      fetch(location.protocol+"//"+window.location.hostname+":"+window.location.port+"/usuario")
       .then(res => res.json())
       .then(
 

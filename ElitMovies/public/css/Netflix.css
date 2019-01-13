@@ -819,20 +819,45 @@ label {
 
 }
 
+.ContieneResultados {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	transition: all 0.7s ease;
+
+}
+.Resultados {
+	margin: auto;
+	width:70%;
+
+}
+
+
+
+.ContieneResultados .ContieneTitulo{
+	background: #00000000;
+}
+
+
+
+.ContieneResultados .Pelicula{
+	background: #0000004d;
+}
 
 
 
 
 
 
+.ContieneResultados .ContienePelicula:hover{
+	transform: scale(1.1);
+}
 
-
-
-
-
-
-
-
+.ContieneResultados .ContieneTitulo p{
+	font-size: 22px;
+}
 
 
 

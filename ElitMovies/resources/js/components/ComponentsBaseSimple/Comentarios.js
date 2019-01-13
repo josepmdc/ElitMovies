@@ -30,7 +30,7 @@ export default class Comentarios extends Component {
 
     PrepararDatos() //Cargamos las opiniones por el Id de la pelicula
     {
-      fetch("http://"+window.location.hostname+":"+window.location.port+"/api/Comentarios?IdPelicula="+this.props.idPelicula+"&page=1")
+      fetch(location.protocol+"//"+window.location.hostname+":"+window.location.port+"/api/Comentarios?IdPelicula="+this.props.idPelicula+"&page=1")
       .then(res => res.json())
       .then(
 

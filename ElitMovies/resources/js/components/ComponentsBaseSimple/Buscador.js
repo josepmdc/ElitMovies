@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import MiniMovieRow from './MiniMovieRow'
 
 
 
@@ -12,6 +12,8 @@ export default class Buscador extends Component {
 
     super(props)
     this.state = {}
+    this.X;
+    this.Y;
    
 
     }
@@ -36,9 +38,14 @@ export default class Buscador extends Component {
       this.Oscurecer();
 
       var Posx = (w-(w/2)-(anchura/2))-x;
+      this.X = Posx;
+
       var PosY = (h-(0.85*h))
+      this.Y = PosY
       this.refs.input.style.width="100%";
       element.style.transform = "translateX("+Posx+"px) translateY("+PosY+"px) scale(1.5)";
+       this.refs.ContieneResultados.style.opacity = "1";
+      this.refs.ContieneResultados.style.display = "block";
 
 
     }
@@ -71,16 +78,20 @@ export default class Buscador extends Component {
         {
 
           fondo.classList.remove('Amplio');
+          this.refs.ContieneResultados.style.opacity = "0";
         }
 
         , 800);
+      this.refs.ContieneResultados.style.display = "none";
+      
      
 
     }
 
     Buscar()
     {
-      fetch("http://"+window.location.hostname+":"+window.location.port+"/api/pelicula/buscar/venom")
+      var valor = this.refs.input.value;
+      fetch(location.protocol+"//"+window.location.hostname+":"+window.location.port+"/api/pelicula/buscar/"+valor)
       .then(res => res.json())
       .then(
 
@@ -92,13 +103,13 @@ export default class Buscador extends Component {
 
           resultados.forEach(coment => {
             
-            
+            const movieRow = <MiniMovieRow key = { coment.id } movie = { coment } />
+            movies.push(movieRow)
 
-
-            alert(coment.title)
-            
 
           });
+          this.setState({ rows: movies })
+          this.refs.ContieneResultados.style.transform = "translateY("+(this.Y+100)+"px)";
           /*
           this.setState({
             items: ListadoComemtarios
@@ -136,11 +147,21 @@ export default class Buscador extends Component {
         return (
 
             <div>
-                <div className="Oscuridad" ref="Oscuridad" onClick={this.CerrarBuscador.bind(this)} ></div>
+                <div className="Oscuridad" ref="Oscuridad" onClick={this.CerrarBuscador.bind(this)} >
+                 
+                </div>
                 <div ref ="ContBuscador" className="ContieneBuscador" onClick={this.AbrirBuscador.bind(this)}>
                   <span className="glyphicon glyphicon-search"></span>
                   <input id="searchBar" ref = "input" placeholder="Buscar" onChange={this.Buscar.bind(this)}  autoComplete="off" type="text"></input>
+                   
                 </div>
+                <div className="ContieneResultados" ref="ContieneResultados" onClick={this.CerrarBuscador.bind(this)}>
+                  <div className="Resultados">
+                   {this.state.rows}
+                  </div>
+                  
+                </div>
+               
             </div>
 
 

@@ -75,7 +75,7 @@ export default class Comentarios extends Component {
       {
         this.PonerCargador() //Añadimos un loader sencillo que indique que se estan cargando los datos
 
-          fetch("http://"+window.location.hostname+":"+window.location.port+"/api/SubComentarios?IdComentario="+this.props.datos.id+"&IdPelicula=155&page=1")
+          fetch(location.protocol+"//"+window.location.hostname+":"+window.location.port+"/api/SubComentarios?IdComentario="+this.props.datos.id+"&IdPelicula=155&page=1")
           .then(res => res.json())
           .then(
 
