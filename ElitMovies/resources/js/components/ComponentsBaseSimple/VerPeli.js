@@ -92,7 +92,7 @@ export default class VerPeli extends Component {
     }
     UrlsFondos()
     {
-        this.Pelicula.poster_path    = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/"+this.Pelicula.poster_path
+        //this.Pelicula.poster_path    = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/"+this.Pelicula.poster_path
         this.Pelicula.backdrop_path  = "https://image.tmdb.org/t/p/w1400_and_h450_face/"+this.Pelicula.backdrop_path
 
     }
@@ -101,7 +101,7 @@ export default class VerPeli extends Component {
     {
       return (
        
-         <img src={this.Pelicula.poster_path}/>
+         <img src=""/>
        
       )
     }

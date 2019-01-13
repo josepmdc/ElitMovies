@@ -42,7 +42,8 @@ Route::get('/valoradas',			'PeliculasController@Valoradas');		//Mejor valoradas
 Route::get('/valoradas/{pagina}',	'PeliculasController@ValoradasPagina');	//Especificamos numero pagina valoradas
 Route::get('/idioma',				'PeliculasController@DameIdioma');	
 
-
+/*--------------------------------BUSCADOR-----------------------------*/
+Route::get('/pelicula/buscar/{busqueda}',		'PeliculasController@Buscar');		
 
 
 

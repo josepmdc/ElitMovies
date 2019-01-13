@@ -11,6 +11,7 @@ export default class Buscador extends Component {
     {
 
     super(props)
+    this.state = {}
    
 
     }
@@ -77,6 +78,52 @@ export default class Buscador extends Component {
 
     }
 
+    Buscar()
+    {
+      fetch("http://"+window.location.hostname+":"+window.location.port+"/api/pelicula/buscar/venom")
+      .then(res => res.json())
+      .then(
+
+
+        (result) => {
+
+          var movies = [];
+          const resultados = result.results;
+
+          resultados.forEach(coment => {
+            
+            
+
+
+            alert(coment.title)
+            
+
+          });
+          /*
+          this.setState({
+            items: ListadoComemtarios
+          });
+          
+          const OpcionMas = <BotonMas key = 'Valoradas' dir = 'Valoradas' />
+          movies.push(OpcionMas);
+          this.setState({ rows: movies })
+          this.QuitarCargadorPeliculas();
+          */
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+    }
+
+    
+
 
 
 
@@ -92,7 +139,7 @@ export default class Buscador extends Component {
                 <div className="Oscuridad" ref="Oscuridad" onClick={this.CerrarBuscador.bind(this)} ></div>
                 <div ref ="ContBuscador" className="ContieneBuscador" onClick={this.AbrirBuscador.bind(this)}>
                   <span className="glyphicon glyphicon-search"></span>
-                  <input id="searchBar" ref = "input" placeholder="Buscar"  autoComplete="off" type="text"></input>
+                  <input id="searchBar" ref = "input" placeholder="Buscar" onChange={this.Buscar.bind(this)}  autoComplete="off" type="text"></input>
                 </div>
             </div>
 

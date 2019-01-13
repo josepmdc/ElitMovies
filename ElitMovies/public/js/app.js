@@ -21196,8 +21196,7 @@ var MovieRow = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__BaseSimple__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Usuario_PanelUser__ = __webpack_require__(267);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ComponentsBaseSimple_Buscador__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ComponentsBaseSimple_Buscador__ = __webpack_require__(267);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21209,7 +21208,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
+//import PanelUser                                from './Usuario/PanelUser';
 
 
 var Menu = function (_Component) {
@@ -21275,8 +21274,7 @@ var Menu = function (_Component) {
                 )
               )
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__ComponentsBaseSimple_Buscador__["a" /* default */], null),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Usuario_PanelUser__["a" /* default */], null)
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__ComponentsBaseSimple_Buscador__["a" /* default */], null)
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/perfil', component: function component() {
               return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -21293,6 +21291,9 @@ var Menu = function (_Component) {
               );
             } }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/', exact: true, component: function component() {
+              return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__BaseSimple__["a" /* default */], null);
+            } }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/usuario', exact: true, component: function component() {
               return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__BaseSimple__["a" /* default */], null);
             } })
         )
@@ -28855,7 +28856,7 @@ var Comentarios = function (_Component) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(106);
-module.exports = __webpack_require__(273);
+module.exports = __webpack_require__(272);
 
 
 /***/ }),
@@ -50937,7 +50938,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__BaseModificada__ = __webpack_require__(232);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__BaseSimple__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Menu__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__BasePeli__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__BasePeli__ = __webpack_require__(268);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -86282,184 +86283,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var PanelUser = function (_Component) {
-    _inherits(PanelUser, _Component);
-
-    function PanelUser(props) {
-        _classCallCheck(this, PanelUser);
-
-        var _this = _possibleConstructorReturn(this, (PanelUser.__proto__ || Object.getPrototypeOf(PanelUser)).call(this, props));
-
-        _this.state = {
-            nombre: "login"
-        };
-        _this.Usuario = null;
-        _this.EstaConectado();
-        _this.Abierto = false;
-
-        return _this;
-    }
-
-    _createClass(PanelUser, [{
-        key: "AbrirPanel",
-        value: function AbrirPanel() {
-            var f = this.refs.flexa;
-            var p = this.refs.Panel;
-            if (!this.Abierto) {
-                f.classList.add("FlexaGirada");
-                p.classList.add("PanelAbierto");
-                this.Abierto = true;
-            } else {
-                f.classList.remove("FlexaGirada");
-                p.classList.remove("PanelAbierto");
-                this.Abierto = false;
-            }
-        }
-    }, {
-        key: "EstaConectado",
-        value: function EstaConectado() {
-            var _this2 = this;
-
-            fetch("http://" + window.location.hostname + ":" + window.location.port + "/usuario").then(function (res) {
-                return res.json();
-            }).then(function (result) {
-
-                var nombre = "";
-
-                if (result.exito == true) {
-                    _this2.CambiarDeEstado();
-                    nombre = result.user.name;
-                } else {
-                    _this2.setState({ nombre: "login" });
-                }
-
-                _this2.setState({ nombre: nombre });
-            }, function (error) {});
-        }
-    }, {
-        key: "Retorno",
-        value: function Retorno() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "ContieneOpcionesUsuario", ref: "Panel" },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { ref: "inicio1", className: "ConInicio" },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "a",
-                        null,
-                        "Mi Perfil"
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { ref: "inicio2", className: "ConInicio" },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "a",
-                        null,
-                        "Ajustes"
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { ref: "inicio3", className: "ConInicio" },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "a",
-                        { href: "/logout" },
-                        "Logout"
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { ref: "Noinicio1", className: "SinInicio" },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "a",
-                        { href: "/register" },
-                        "Registrarse"
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { ref: "Noinicio2", className: "SinInicio" },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "a",
-                        { href: "/login" },
-                        "Login"
-                    )
-                )
-            );
-        }
-    }, {
-        key: "CambiarDeEstado",
-        value: function CambiarDeEstado() {
-            this.refs.inicio1.classList.remove('ConInicio');
-            this.refs.inicio2.classList.remove('ConInicio');
-            this.refs.inicio3.classList.remove('ConInicio');
-
-            this.refs.Noinicio1.classList.add('Inexistente');
-            this.refs.Noinicio2.classList.add('Inexistente');
-        }
-    }, {
-        key: "render",
-        value: function render() {
-
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "ContienePanelUsuario", onClick: this.AbrirPanel.bind(this) },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "ContieneAbrirCerrar" },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", { ref: "flexa", className: "glyphicon glyphicon-chevron-down flexa" })
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "ContieneNombreUsuario" },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "p",
-                        null,
-                        this.state.nombre
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "ContieneImagenPerfilUsuario" },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "div",
-                        { className: "MiniImagenProfile" },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "/Imagenes/Usuarios/1.png" })
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    null,
-                    this.Retorno()
-                )
-            );
-        }
-    }]);
-
-    return PanelUser;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
-
-/* harmony default export */ __webpack_exports__["a"] = (PanelUser);
-
-/***/ }),
-/* 268 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
 var Buscador = function (_Component) {
   _inherits(Buscador, _Component);
 
@@ -86521,6 +86344,43 @@ var Buscador = function (_Component) {
       }, 800);
     }
   }, {
+    key: "Buscar",
+    value: function Buscar() {
+      var _this2 = this;
+
+      fetch("http://" + window.location.hostname + ":" + window.location.port + "/api/pelicula/buscar/venom").then(function (res) {
+        return res.json();
+      }).then(function (result) {
+
+        var movies = [];
+        var resultados = result.results;
+
+        resultados.forEach(function (coment) {
+
+          alert(coment.title);
+        });
+        /*
+        this.setState({
+          items: ListadoComemtarios
+        });
+        
+        const OpcionMas = <BotonMas key = 'Valoradas' dir = 'Valoradas' />
+        movies.push(OpcionMas);
+        this.setState({ rows: movies })
+        this.QuitarCargadorPeliculas();
+        */
+      },
+      // Note: it's important to handle errors here
+      // instead of a catch() block so that we don't swallow
+      // exceptions from actual bugs in components.
+      function (error) {
+        _this2.setState({
+          isLoaded: true,
+          error: error
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
 
@@ -86532,7 +86392,7 @@ var Buscador = function (_Component) {
           "div",
           { ref: "ContBuscador", className: "ContieneBuscador", onClick: this.AbrirBuscador.bind(this) },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", { className: "glyphicon glyphicon-search" }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { id: "searchBar", ref: "input", placeholder: "Buscar", autoComplete: "off", type: "text" })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { id: "searchBar", ref: "input", placeholder: "Buscar", onChange: this.Buscar.bind(this), autoComplete: "off", type: "text" })
         )
       );
     }
@@ -86544,7 +86404,7 @@ var Buscador = function (_Component) {
 /* harmony default export */ __webpack_exports__["a"] = (Buscador);
 
 /***/ }),
-/* 269 */
+/* 268 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -86555,7 +86415,7 @@ var Buscador = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ComponentsBaseSimple_InicioPeliculas__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ComponentsBaseSimple_VerPeli__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ComponentsBaseSimple_VerPeli__ = __webpack_require__(269);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_jquery__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_jquery__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Global_Header__ = __webpack_require__(52);
@@ -86621,15 +86481,15 @@ var BaseSimple = function (_Component) {
 /* harmony default export */ __webpack_exports__["a"] = (BaseSimple);
 
 /***/ }),
-/* 270 */
+/* 269 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Editor_js__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Comentarios_js__ = __webpack_require__(271);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Actor_js__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Comentarios_js__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Actor_js__ = __webpack_require__(271);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -86730,13 +86590,13 @@ var VerPeli = function (_Component) {
   }, {
     key: 'UrlsFondos',
     value: function UrlsFondos() {
-      this.Pelicula.poster_path = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/" + this.Pelicula.poster_path;
+      //this.Pelicula.poster_path    = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/"+this.Pelicula.poster_path
       this.Pelicula.backdrop_path = "https://image.tmdb.org/t/p/w1400_and_h450_face/" + this.Pelicula.backdrop_path;
     }
   }, {
     key: 'DevolverImagen',
     value: function DevolverImagen() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.Pelicula.poster_path });
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '' });
     }
   }, {
     key: 'DevolverActores',
@@ -87019,7 +86879,7 @@ var VerPeli = function (_Component) {
 /* harmony default export */ __webpack_exports__["a"] = (VerPeli);
 
 /***/ }),
-/* 271 */
+/* 270 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -87151,7 +87011,7 @@ var Comentarios = function (_Component) {
 /* harmony default export */ __webpack_exports__["a"] = (Comentarios);
 
 /***/ }),
-/* 272 */
+/* 271 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -87239,7 +87099,7 @@ var Actor = function (_Component) {
 /* harmony default export */ __webpack_exports__["a"] = (Actor);
 
 /***/ }),
-/* 273 */
+/* 272 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

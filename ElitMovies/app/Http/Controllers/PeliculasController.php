@@ -127,6 +127,17 @@ class PeliculasController extends Controller
         return $datos;
     }
 
+    public function Buscar($busqueda)
+    {
+        $URLId = "https://api.themoviedb.org/3/search/multi?api_key=".$this->ApiCodigo."&query=".$busqueda."&language=".$this->Idioma;
+        
+        $datos = $this->DameDatos($URLId,"");
+        
+        
+        return $datos;
+    }
+
+
 
     
     

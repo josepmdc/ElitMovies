@@ -2,7 +2,7 @@
 import React, { Component }                     from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import BaseSimple                               from './BaseSimple';
-import PanelUser                                from './Usuario/PanelUser';
+//import PanelUser                                from './Usuario/PanelUser';
 import Buscador                                 from './ComponentsBaseSimple/Buscador';
 
  
@@ -40,12 +40,13 @@ class Menu extends Component {
               </ul>
               
               <Buscador/>
-              <PanelUser/>
+              
             </nav>
 
             <Route path="/perfil"            component={() => <h2>users</h2>} />
             <Route path="/about/"            component={() => <h2>about</h2>} />
             <Route path="/"         exact    component={() => <BaseSimple />} />
+            <Route path="/usuario"         exact    component={() => <BaseSimple />} />
             
           </div>
         </Router>
